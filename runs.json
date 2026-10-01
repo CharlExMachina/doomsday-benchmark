@@ -1,0 +1,1127 @@
+{
+  "generatedAt": "2026-10-01T22:50:41.569Z",
+  "runs": [
+    {
+      "id": "jcode-2026-10-01_jcode-sonnet-5.5",
+      "formerId": "ocarina-remake_jcode-sonnet-5.5_2026-10-01T17-12-20",
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "claude-sonnet-5-5",
+      "variant": null,
+      "harness": "jcode",
+      "gradedAt": "2026-10-01T17:57:32.670Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 84.2,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 37.1,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 12.7,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 19.4,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 2378.819,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": null,
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "ocarina-remake_opus_2026-10-01T21-58-54",
+      "formerId": null,
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "claude-opus-5-5",
+      "variant": null,
+      "harness": "claude-code",
+      "gradedAt": "2026-10-01T22:50:31.783Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 80.5,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 8.7,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 37.3,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 12,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 17.5,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 2385.625,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 107,
+        "tokens": {
+          "input": 164,
+          "cacheRead": 9640261,
+          "cacheWrite": 183628,
+          "output": 118000,
+          "reasoning": 37848,
+          "total": 9942053
+        },
+        "costUsd": 5.757732199999999,
+        "costBasis": "Claude Code's estimate at API list prices; on a subscription you aren't billed per run"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "claude-code-2026-09-29_claude-opus-5-5",
+      "formerId": "ocarina-remake_opus_2026-09-29T19-53-39",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "claude-opus-5-5",
+      "variant": null,
+      "harness": "claude-code",
+      "gradedAt": "2026-09-30T01:16:13.624Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 79.4,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 14,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 26.8,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 10.8,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 17.8,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 4277.966,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 251,
+        "tokens": {
+          "input": 304,
+          "cacheRead": 48536489,
+          "cacheWrite": 504012,
+          "output": 324593,
+          "reasoning": 168602,
+          "total": 49365398
+        },
+        "costUsd": 20.23246980000001,
+        "costBasis": "Claude Code's estimate at API list prices; on a subscription you aren't billed per run"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "jcode-2026-10-01_jcode-opus-5.5",
+      "formerId": "ocarina-remake_jcode-opus-5.5_2026-10-01T16-07-35",
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "claude-opus-5-5",
+      "variant": null,
+      "harness": "jcode",
+      "gradedAt": "2026-10-01T17:06:22.967Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 77.6,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 8.3,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 33.7,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 12.7,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 17.9,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 3213.115,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": null,
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "opencode-2026-09-30_space-bunny-free",
+      "formerId": "ocarina-remake_space-bunny-free-max_2026-09-30T15-25-29",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/space-bunny-free",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-09-30T17:44:48.191Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 73,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 15,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 20.9,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 8.6,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 18.5,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 7991.109,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 304,
+        "tokens": {
+          "input": 673753,
+          "cacheRead": 59435708,
+          "cacheWrite": 0,
+          "output": 246920,
+          "reasoning": 91785,
+          "total": 60356381
+        },
+        "costUsd": 0,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "opencode-2026-09-30_deepseek-v4.1-flash",
+      "formerId": "ocarina-remake_deepseek-v4.1-flash-max_2026-09-30T01-48-42",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/deepseek-v4.1-flash",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-09-30T02:44:51.890Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 70.2,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 15,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 21.4,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 9,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 14.8,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 3068.53,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 149,
+        "tokens": {
+          "input": 469316,
+          "cacheRead": 19686982,
+          "cacheWrite": 0,
+          "output": 160558,
+          "reasoning": 90570,
+          "total": 20316856
+        },
+        "costUsd": 0.451586292,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "opencode-2026-09-30_glm-5.3-flash",
+      "formerId": "ocarina-remake_glm-5.3-flash-max_2026-09-30T04-38-52",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/glm-5.3-flash",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-09-30T05:07:50.822Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 67.8,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 9.5,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 15,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 19.8,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 10.1,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 13.4,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 1522.903,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 72,
+        "tokens": {
+          "input": 253050,
+          "cacheRead": 5294080,
+          "cacheWrite": 0,
+          "output": 62488,
+          "reasoning": 37828,
+          "total": 5609618
+        },
+        "costUsd": 0.22802389999999997,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09",
+      "formerId": null,
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/deepseek-v4.1-flash",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-10-01T19:25:54.190Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 64.7,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 9.7,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 25.3,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 11.3,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 13.4,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 3163.893,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 108,
+        "tokens": {
+          "input": 560978,
+          "cacheRead": 10603660,
+          "cacheWrite": 0,
+          "output": 122228,
+          "reasoning": 75691,
+          "total": 11286866
+        },
+        "costUsd": 0.3785889600000002,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12",
+      "formerId": null,
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/glm-5.3-flash",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-10-01T19:41:53.541Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 64.7,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 22.8,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 10.9,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 16,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 4033.67,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 180,
+        "tokens": {
+          "input": 962157,
+          "cacheRead": 19848192,
+          "cacheWrite": 0,
+          "output": 111219,
+          "reasoning": 58771,
+          "total": 20921568
+        },
+        "costUsd": 0.7953788099999995,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "codex-2026-09-30_gpt-6-astra",
+      "formerId": "ocarina-remake_codex-astra-6-medium_2026-09-30T16-23-33",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "gpt-6-astra",
+      "variant": null,
+      "harness": "codex",
+      "gradedAt": "2026-09-30T16:33:16.192Z",
+      "judgeModel": "claude-opus-5-5",
+      "score": {
+        "total": 62.6,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 15,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 19.6,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 8.3,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 9.7,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 352.334,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 1,
+        "tokens": {
+          "input": 50048,
+          "cacheRead": 492032,
+          "cacheWrite": 0,
+          "output": 11012,
+          "reasoning": 662,
+          "total": 553092
+        },
+        "costUsd": 1.543112,
+        "costBasis": "Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "codex-2026-09-30_gpt-6.1-sol",
+      "formerId": "ocarina-remake_codex-sol-6.1-medium_2026-09-30T15-49-16",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "gpt-6.1-sol",
+      "variant": null,
+      "harness": "codex",
+      "gradedAt": "2026-09-30T16:09:08.329Z",
+      "judgeModel": "claude-opus-5-5",
+      "score": {
+        "total": 59.3,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 14,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 19,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 8.3,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 8,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 903.446,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 1,
+        "tokens": {
+          "input": 116434,
+          "cacheRead": 786176,
+          "cacheWrite": 0,
+          "output": 14860,
+          "reasoning": 1204,
+          "total": 917470
+        },
+        "costUsd": 0.4600856,
+        "costBasis": "Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "ocarina-remake_space-bunny-free-max_2026-10-01T20-06-07",
+      "formerId": null,
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/space-bunny-free",
+      "variant": "max",
+      "harness": "opencode",
+      "gradedAt": "2026-10-01T21:35:03.051Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 58.4,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 7.6,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 18,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 10.8,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 17,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 4600.545,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 220,
+        "tokens": {
+          "input": 599193,
+          "cacheRead": 32122624,
+          "cacheWrite": 0,
+          "output": 186551,
+          "reasoning": 0,
+          "total": 32908368
+        },
+        "costUsd": 0,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "codex-2026-09-30_gpt-6-sol",
+      "formerId": "ocarina-remake_codex-sol-6-medium_2026-09-30T15-49-28",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "gpt-6-sol",
+      "variant": null,
+      "harness": "codex",
+      "gradedAt": "2026-09-30T16:10:48.529Z",
+      "judgeModel": "claude-opus-5-5",
+      "score": {
+        "total": 56.8,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 15,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 15.4,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 7.6,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 8.8,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 1033.358,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 1,
+        "tokens": {
+          "input": 59049,
+          "cacheRead": 1362688,
+          "cacheWrite": 0,
+          "output": 17081,
+          "reasoning": 2322,
+          "total": 1438818
+        },
+        "costUsd": 0.5614456000000001,
+        "costBasis": "Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    },
+    {
+      "id": "ocarina-remake_muse-spark-1.3-free-xhigh_2026-10-01T18-21-18",
+      "formerId": null,
+      "benchmarkVersion": "1.1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "variant": "xhigh",
+      "harness": "opencode",
+      "gradedAt": "2026-10-01T18:52:05.534Z",
+      "judgeModel": "opus",
+      "score": {
+        "total": 50,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 5,
+            "max": 5
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 9,
+            "max": 10
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 18.3,
+            "max": 45
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 7.8,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, iteration, verification",
+            "kind": "judged",
+            "points": 9.9,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 1178.037,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 76,
+        "tokens": {
+          "input": 312030,
+          "cacheRead": 3438220,
+          "cacheWrite": 0,
+          "output": 41016,
+          "reasoning": 9673,
+          "total": 3791266
+        },
+        "costUsd": 0,
+        "costBasis": "OpenCode's cost at its provider's prices"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": {
+        "min": 13,
+        "max": 25
+      },
+      "hasApp": true
+    },
+    {
+      "id": "codex-2026-09-30_gpt-6-luna",
+      "formerId": "ocarina-remake_codex-luna-6-medium_2026-09-30T15-49-44",
+      "benchmarkVersion": "1",
+      "scenario": {
+        "id": "ocarina-remake",
+        "title": "The Legend of Zelda: Ocarina of Time (remake)",
+        "target": "2026-11-05T00:00:00-05:00",
+        "targetLabel": "November 5, 2026 at midnight Eastern Time"
+      },
+      "model": "gpt-6-luna",
+      "variant": null,
+      "harness": "codex",
+      "gradedAt": "2026-09-30T16:05:24.263Z",
+      "judgeModel": "claude-opus-5-5",
+      "score": {
+        "total": 46.4,
+        "max": 100,
+        "lines": [
+          {
+            "area": "Countdown contract",
+            "kind": "automated",
+            "points": 10,
+            "max": 10
+          },
+          {
+            "area": "Code hygiene",
+            "kind": "automated",
+            "points": 11.5,
+            "max": 15
+          },
+          {
+            "area": "Experience and use of assets",
+            "kind": "judged",
+            "points": 12.1,
+            "max": 35
+          },
+          {
+            "area": "Codebase",
+            "kind": "judged",
+            "points": 5.6,
+            "max": 15
+          },
+          {
+            "area": "Process: self-critique, persistence, verification",
+            "kind": "judged",
+            "points": 7.2,
+            "max": 25
+          }
+        ]
+      },
+      "duration": {
+        "seconds": 391.694,
+        "source": "launch to exit, measured by the benchmark"
+      },
+      "usage": {
+        "turns": 1,
+        "tokens": {
+          "input": 62136,
+          "cacheRead": 1170560,
+          "cacheWrite": 0,
+          "output": 11516,
+          "reasoning": 1991,
+          "total": 1244212
+        },
+        "costUsd": 0.023677200000000002,
+        "costBasis": "Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals"
+      },
+      "exit": {
+        "code": 0,
+        "timedOut": false
+      },
+      "imageWindow": null,
+      "hasApp": true
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<h1>Doomsday benchmark: ocarina-remake_codex-sol-6.1-medium_2026-09-30T15-49-16</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --json --model gpt-6.1-sol &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> codex</li>
+<li><strong>Judges:</strong> claude-opus-5-5, judged 2026-09-30 16:07 UTC</li>
+</ul>
+<h2>Score: 59.3 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>14 / 15</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>19 / 35</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>8.3 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, persistence, verification</td>
+<td>judged</td>
+<td>8 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 15 min 3 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 1</li>
+<li><strong>Tokens:</strong> 917K in total: 786K read from cache, 0 written to cache, 116K uncached input, 15K output, 1K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.460 (Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals)</li>
+</ul>
+<h2>Countdown contract: 10 / 10</h2>
+<ul>
+<li><p>Browser checks stopped early: locator.getAttribute: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator(&#39;button, a[href], [role=&quot;button&quot;], summary, input, select, textarea, [tabindex]:not([tabindex=&quot;-1&quot;])&#39;).nth(1)[22m</p>
+</li>
+<li><p>✓ exactly one valid duration &lt;time&gt; at every moment (2/2)</p>
+</li>
+<li><p>✓ correct remaining time (8/8 moments) (4/4)</p>
+</li>
+<li><p>✓ ticks every second (1/1)</p>
+</li>
+<li><p>✓ reaches zero on time (1/1)</p>
+</li>
+<li><p>✓ no console errors or uncaught exceptions (1/1)</p>
+</li>
+<li><p>✓ no horizontal overflow on a 390px phone (0.5/0.5)</p>
+</li>
+<li><p>✓ no requests to other origins (0.5/0.5)</p>
+</li>
+</ul>
+<h2>Code hygiene: 14 / 15</h2>
+<ul>
+<li>−1 dead code (knip) (2)</li>
+</ul>
+<h2>Experience and use of assets: 19 / 35</h2>
+<p>A tasteful, dark-forest, gold-serif Zelda-style landing page, with the Kokiri Forest art as the hero, a clean four-unit serif countdown and three scene cards. It is on-brand but reads as a polished template rather than a dramatic event. The official OoT logo went unused, the hero art is heavily dimmed and sits behind the days digit, the final seconds get no special treatment, and the arrival state only swaps the headline and turns the zeros gold. None of the evidence tried to address reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 6/10.</strong> Capture 01 has a dark forest palette in greens, golds and cream, a Cinzel-style engraved serif for the headline and digits, a Triforce mark in the header, the eyebrow and divider, and fairy-light particles over the Kokiri Forest key art. It reads as Hyrule, not SaaS. The copy works but is generic launch language (&#39;A legend. Reawakened.&#39;, &#39;Some adventures stay with you.&#39;). None of it draws on Ocarina lore such as the Song of Time, the Temple of Time or ocarina notes, even though the subject is literally a clock. The structure is a premium-studio landing page: a hero, a &#39;Save the date&#39; CTA, then a card row. It is tasteful rather than dramatic, and the countdown feels like a nicely skinned timer, not an ominous event. The official gold Zelda logo was dropped in favour of a thin generic text wordmark, which weakens the franchise identity.</li>
+<li><strong>Visual craft: 6/10.</strong> The type pairing is refined: large light serif numerals, widely tracked small caps and Manrope body text. The gold is used consistently for accents, the CTA and the seconds, and spacing and alignment on desktop are clean (capture 01). There are rough edges. The DAYS numeral &#39;37&#39; sits directly on top of Link&#39;s shield and body (captures 01 and 06), so the hero&#39;s focal points collide. The right-side headline column and the centred countdown use different alignment axes. The micro-labels (&#39;EVERY SECOND BRINGS US CLOSER&#39;, &#39;THE COUNTDOWN IS LIVE&#39;, the scene selector) are very small and low contrast. The footer fine print is tiny. Overall it looks like a tasteful template executed well, not a distinctive design.</li>
+<li><strong>Countdown legibility: 6/10.</strong> The four large numerals are clearly labelled DAYS, HOURS, MINUTES and SECONDS, zero-padded, and the seconds are highlighted in gold. Across captures 01–05 the digit widths and positions hold steady with no visible jitter. The countdown is the largest element on the page, but it shares the hero with a two-line headline of similar visual weight. On desktop the &#39;37&#39;/&#39;00&#39; days digits sit over the busy Link figure, which slightly reduces clarity. The labels are small and dim. It is still readable at a glance.</li>
+<li><strong>Motion and interactivity: 5/10.</strong> Captures 02 and 03 show only the ticking seconds and slight particle drift (a drift keyframe). The seconds have a tick keyframe; in capture 04 the &#39;00&#39; is mid-fade. Captures 04 and 05 are identical, so there is no pointer response and no parallax. The source shows real interactions: a three-scene background switcher (01/02/03), card clicks that change the scene, hover zoom on the cards, a hover on the primary button, focus-visible styles, a Focus mode with an Esc exit, and a generated WebAudio ambience toggle, plus handling for reduced motion. Capture 14 (clicking home) shows no change. The interactions add something, but motion overall is subdued and there is no signature moment.</li>
+<li><strong>Phone layout and edge states: 4/10.</strong> The mobile layout (capture 09) is properly re-composed: centred headline, a four-column countdown that fits at 390px, a cropped hero image and stacked cards, with no overflow. The header drops the Switch 2 badge and keeps a mute icon. &#39;REDISCOVER HYRULE&#39; wraps awkwardly onto two lines, and a stray dot sits beside FOCUS MODE. The final seconds (captures 07 and 11) look identical to the normal state, with no heightened treatment. On arrival (08, 12, 13) the headline becomes &#39;The time has come.&#39; and the zeros turn gold, but the same hero stays up, &#39;Save the date&#39; remains after the date has passed, and there is no celebration. Nothing breaks or goes negative, but the edge states feel like afterthoughts.</li>
+<li><strong>Asset selection: 5/10.</strong> The strongest image, thumb-1920 (Link and Navi in Kokiri Forest), was chosen as the hero and re-encoded as kokiri.webp. Both remake screenshots were used: the Deku Tree and Link on Epona before Death Mountain. Leaving out the poster f55hr5n4xdoh1.jpg, with its heavy line-texture overlay, is defensible. Leaving out the official gold OoT logo with the Hylian Shield and Master Sword (8a1enblo1b6h1.png) is a real miss, because it is the most iconic identity asset and was replaced by a plain text wordmark. The Kokiri image also appears twice, as the hero and as a card.</li>
+<li><strong>Asset treatment: 5/10.</strong> The hero is cropped so Link sits left, and the image is heavily darkened and desaturated with a green-black overlay. This keeps the text legible, but the bright, luminous key art turns murky, and Link&#39;s figure sits right behind the days digit. The mobile crop cuts Link at the left edge. The cards use gradient scrims for the titles and consistent aspect ratios, and they look good. Formats are sensible: AVIF was kept and the 2.8 MB PNG was converted to a 307 KB WebP. Decorative images have empty alt and the cards have descriptive alt. The treatment is competent, but it flattens the art rather than getting more out of it.</li>
+</ul>
+<h2>Codebase: 8.3 / 15</h2>
+<p>This is a compact, tidy codebase. The countdown logic in <code>countdown.ts</code> is pure and well tested, the README is accurate, and I found no dead code (the flagged fontsource dependencies are used). It is held back by one 385-line <code>App</code> component that mixes audio synthesis, ICS generation and all the UI, by an 860-line flat stylesheet, and by the target date being repeated in the ICS and UI copy. No reviewer-directed text was found in the evidence.</p>
+<ul>
+<li><strong>Navigability: 6/10.</strong> The structure is small and easy to learn. Countdown math and the ?now override both sit in <code>src/countdown.ts</code> (27 lines: <code>RELEASE_AT</code>, <code>getRemaining</code> and <code>createClock</code>). The README (20 lines) says what the app is, lists the commands, explains ?now with an example and maps every file (<code>countdown.ts</code>, <code>App.tsx</code>, <code>App.css</code>, <code>index.css</code>, <code>public/images/</code>). Tests are in <code>tests/countdown.test.ts</code>. The weak spot is the visual pieces. Header, clock, scene selector, discover cards, footer and focus overlay all live in one 385-line <code>App()</code> in <code>App.tsx</code>, with no component boundaries apart from the small <code>Triforce</code> and <code>SoundIcon</code> SVG components. The styles are one flat 860-line <code>App.css</code>. Finding a visual piece means scrolling through JSX, but the class names (<code>clock-section</code>, <code>scene-selector</code>, <code>discover</code>) make that manageable.</li>
+<li><strong>Separation of concerns: 5/10.</strong> The time logic is pure and tested. <code>getRemaining(now)</code> has no side effects, and five <code>node:test</code> cases cover the DST offset, rollover across a day boundary, clamping at zero and partial seconds. <code>createClock</code> is injected through <code>useState(createClock)</code>. <code>RELEASE_AT</code> is the single constant for the math, but the target moment is duplicated elsewhere: the ICS hard-codes <code>DTSTART:20261105T050000Z</code> (<code>App.tsx:134</code>), and the UI hard-codes &quot;NOVEMBER 5, 2026 / MIDNIGHT ET&quot; (<code>App.tsx:266-268</code>). <code>getRemaining</code> also returns presentation strings (<code>description</code>) alongside the data. The App component mixes several concerns: the Web Audio oscillator synth (<code>toggleSound</code>), ICS generation and download (<code>saveReminder</code>), the Escape key listener, scene state and all the markup. The scene data is only partly cohesive: image alt text is chosen by a nested ternary on the index (<code>App.tsx:347-353</code>) instead of living in the <code>scenes</code> array, and the unit labels are an inline array indexed by position.</li>
+<li><strong>Readability: 5/10.</strong> Names are mostly clear (<code>released</code>, <code>saveReminder</code>, <code>toggleSound</code>, <code>scenes</code>). The code has almost no comments, and it doesn&#39;t need many. The monolithic <code>App()</code> hurts readability, as do a few spots that are clever or ad hoc: <code>key={index === 3 ? value : index}</code> forces a remount so the seconds digit replays its tick animation, but nothing explains why; the unit label is <code>[&quot;DAYS&quot;,...][index]</code>; the alt text is a nested ternary; <code>createClock</code> computes <code>initial</code> even on the real-clock path, where it is never used; <code>SoundIcon</code> wraps a single path in a needless fragment. The audio setup has magic numbers (0.035, the four frequencies) with no explanation. <code>React.CSSProperties</code> is used without an import. Overall it is readable, but I&#39;d ask for components to be extracted and the scene metadata consolidated before approving.</li>
+<li><strong>Finish: 6/10.</strong> The codebase is clean. I found no commented-out code, TODOs or console logging. Every selector in <code>App.css</code> matches a class that is actually used. The automated dead-code finding for <code>@fontsource/cinzel</code> and <code>@fontsource/manrope</code> is a false positive: <code>index.css:1-4</code> imports both, which self-hosts the fonts as the brief requires. <code>@types/node</code> is justified by the test file. The scaffold was replaced properly: new README, index.html title and meta, a test script, and the assets converted to webp/avif. Some leftovers remain: the package is still <code>&quot;name&quot;: &quot;app&quot;, &quot;version&quot;: &quot;0.0.0&quot;</code>; <code>vite.config.ts</code> keeps the scaffold&#39;s <code>// https://vite.dev/config/</code> comment; <code>tests/</code> sits outside every tsconfig <code>include</code>, so <code>npm run build</code> never type-checks it; and the agent never committed its work.</li>
+</ul>
+<h2>Process: self-critique, persistence, verification: 8 / 25</h2>
+<p>The Codex run shipped a polished-looking Zelda countdown in 15 minutes with thorough functional checks: build, lint and tests pass, and Playwright scripts cover ticking through zero, overflow at five widths and offline requests. Its visual process was weak: three screenshots, no written critique, and the design was never revised after the first pass, so mobile issues in shot 002 (headline over Link&#39;s face, cramped footer) were left as they were. Nothing in the run addressed reviewers or asked for a score.</p>
+<ul>
+<li><strong>Verification: 6/10.</strong> Strong functional checks, thin visual checks. The agent ran <code>npm run build &amp;&amp; npm run lint</code> twice: once before the first shot and once after the final edits, where it also ran <code>npm test</code> with 5 passing node tests (transcript items 15 and 25). It wrote <code>.bench/verify.mjs</code>, a Playwright script that confirms: one <code>&lt;time&gt;</code> element; real ticking from <code>?now=…23:59:50</code> through to <code>PT0S</code>, which then holds; scene buttons and aria-pressed; focus mode and Escape; the audio toggle; the ICS download; no horizontal overflow at 390/600/768/1024/1440; invalid <code>?now</code> falls back to the real clock; no external requests. A second script checks the production preview with other origins blocked and confirms reduced motion. It also inspected the ICS bytes for CRLF line endings. The measured facts back all of this: build and lint pass, 0 type errors, every countdown moment is correct, no console errors. Visual coverage is the weak part. There are only three <code>./shot</code> captures: weeks-out desktop (001), final seconds on mobile (002) and arrival desktop full-page (003). There is no mobile shot after the ~1,320-line change set, no mobile arrival state and no weeks-out mobile view. Shot 003 was taken after the final edits, and nothing changed after it.</li>
+<li><strong>Critique quality: 1/10.</strong> The transcript contains no critique of any screenshot. The only comment on the renders is the generic &#39;The desktop and phone renders are working well&#39; (item_21). Shot 002 has visible issues that went unmentioned. At 390px the &#39;A legend. Reawakened.&#39; headline and subcopy sit over Link&#39;s face and Navi and are hard to read. Link is cropped at the left edge. &#39;REDISCOVER HYRULE&#39; wraps onto two lines in the footer bar. The countdown digits are crowded and the separators between units are lost. On desktop (001/003), the far-left digits overlap Link&#39;s figure. None of this was noticed.</li>
+<li><strong>Follow-through: 2/10.</strong> No critiques were written, so none could be followed through. Between shot 001 and shot 003 the hero is pixel-identical apart from the arrival copy and gold digits. The ~1,320 changed lines in between are Prettier formatting, tests, a README, removing scaffold files, converting the PNG to WebP (2.8 MB → 307 KB) and trimming the font imports to the latin subset. Those are real engineering improvements, but they don&#39;t come from anything seen in a screenshot. The mobile layout problems in 002 were never revisited.</li>
+<li><strong>Persistence: 2/10.</strong> The whole session ran 15 minutes, and all three screenshots were taken within 4.1 minutes. The design was written in one pass (item_13) and never revised. After that the agent spent its remaining effort on packaging and verification scripts, then stopped. It declared itself done at the first working version and never looked for improvements, even though the brief sets no time limit and says to stop only &#39;when you&#39;d be proud to ship it&#39;.</li>
+<li><strong>Honest handover: 6/10.</strong> Most claims are accurate. Build, lint and tests pass, which matches the measured facts. The fonts really are bundled: the build output lists cinzel/manrope woff2 files. The <code>@fontsource</code> packages flagged as dead code are imported from CSS, so that flag looks like a false positive. The overflow, offline and ICS checks were actually run. The page does show &#39;Unofficial fan experience&#39;. The Limits section names real gaps: no Safari or Firefox testing, no service worker, synthesized audio. There are some overclaims. &#39;Inspected desktop… mobile… screenshots&#39; is not backed by any recorded critique. &#39;The normal clock resynchronizes after returning to the tab&#39; was never tested. &#39;No known unfinished requirements&#39; skips the visible mobile readability problems. The final message is short and factual.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 3, spanning 4.1 minutes</li>
+<li>Changed after the last screenshot: 0 files, +0/-0 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6.1-sol/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;Hyrule countdown home&quot;</a></li>
+</ul>

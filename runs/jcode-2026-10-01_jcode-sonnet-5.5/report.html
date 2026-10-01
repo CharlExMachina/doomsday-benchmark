@@ -1,0 +1,185 @@
+<h1>Doomsday benchmark V1.1: ocarina-remake_jcode-sonnet-5.5_2026-10-01T17-12-20</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>jcode -p claude -m claude-sonnet-5-5 run --ndjson &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> unknown</li>
+<li><strong>Judges:</strong> opus, judged 2026-10-01 17:53 UTC</li>
+</ul>
+<h2>Score: 84.2 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>5 / 5</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>37.1 / 45</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>12.7 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, iteration, verification</td>
+<td>judged</td>
+<td>19.4 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 39 min 39 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Tokens and cost:</strong> not reported (no transcript this benchmark can read)</li>
+</ul>
+<h2>Countdown contract: 5 / 5</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (1/1)</li>
+<li>✓ correct remaining time (8/8 moments) (2/2)</li>
+<li>✓ ticks every second (0.5/0.5)</li>
+<li>✓ reaches zero on time (0.5/0.5)</li>
+<li>✓ no console errors or uncaught exceptions (0.3/0.25)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.3/0.25)</li>
+<li>✓ no scrolling to an empty page (0.3/0.25)</li>
+<li>✓ no requests to other origins (0.3/0.25)</li>
+</ul>
+<h2>Code hygiene: 10 / 10</h2>
+<ul>
+<li>No problems found</li>
+</ul>
+<h2>Experience and use of assets: 37.1 / 45</h2>
+<p>A cohesive Hyrule-themed countdown: the official logo and the Kokiri key art carry the page, the visitor plays a working N64-style ocarina whose five notes and six songs are canonically correct and change the page, and the final seconds and the Door-of-Time opening are designed moments. The main drags are a small logo, tiny secondary labels, overdarkened alternate scenes, and an arrival state that leaves a small leftover 00 row. Nothing in the run addressed reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 9/10.</strong> Feels like Hyrule throughout. The backdrop is the client&#39;s Kokiri Forest key art, with drifting fireflies and a Navi orb (01–05). The title is the official logo. Headings and digits are set in a gold Trajan-like serif with italic Cormorant body copy, which matches the logo&#39;s gilded lettering. The copy uses the game&#39;s own lore: &#39;The Door of Time opens in&#39;, &#39;The Door of Time stands sealed.&#39;, &#39;Hey! Listen!&#39;, &#39;The hour is upon you. Take up the ocarina.&#39; The ocarina pad matches the N64 controller, with gold C-arrow buttons and a blue A button (01). Its notes match canon (D4/F4/A4/B4/D5), and all six songs in songs.ts have the correct button sequences. Scenes switch between the Deku Tree and Hyrule Field (16, 17). The final-seconds vignette (07) and the door opening at the zero crossing (13) turn the moment into an event. Minor nit: the gold-on-green palette is a little uniform, and the darkened Deku/Field scenes lose some of the art&#39;s warmth.</li>
+<li><strong>Visual craft: 8/10.</strong> The desktop composition is confident. Link holds the left third, and the logo, eyebrow, headline, digits, date and omen stack cleanly on the right (01). The controls sit on one bottom rail: scene thumbnails, ocarina pad and chips. Spacing is consistent, gold gradient digits carry a soft glow, the chips are pill-shaped with gold hairlines, and there are no clipped edges and no scroll-to-nothing. Rough spots: the logo is small (~140px wide) for a hero mark during the countdown (01), and only grows on arrival (08). The scene-thumbnail labels are tiny (8.5px desktop, 7.5px mobile). The arrival layout shrinks the countdown into a small row of 00s, which looks leftover (08, 12). The &#39;Play a melody&#39; hint is very faint.</li>
+<li><strong>Legibility: 8/10.</strong> The countdown is clearly the hero: huge gold digits with dotted colon separators and spaced uppercase unit labels (01, 06). Colon positions stay fixed across frames 01–05 (x≈680/920/1162), so the cells are stable. The Cormorant numerals are proportional, though, so digit widths shift slightly inside each cell (&#39;01&#39; vs &#39;04&#39;). The phone 2×2 grid stays readable (09). The final-seconds giant &#39;7&#39; is unmistakable (07, 11). The faint spots are secondary text: the thumbnail labels at 7.5–8.5px, &#39;Play a melody&#39;, and the mobile &#39;Coming to Nintendo Switch 2&#39; at 10.5px and contrast 4.3.</li>
+<li><strong>Motion and interactivity: 8/10.</strong> Fireflies drift and Navi floats (01→02→03). Pointer parallax shifts the art and Navi (04, 05). Clicking Navi opens an in-world speech bubble with a real tip, &#39;Press the arrow keys and A to play the ocarina&#39; (14). Scene thumbnails swap the backdrop and mark the active thumb with a gold outline (15–17). Pressing an ocarina button floats a note glyph above the pad (18). Keyboard focus is a clear gold ring on Navi (19). The final seconds dim everything behind a giant digit inside a ring (07), and the door opens at zero (13). Restrained and purposeful. Minor: no hover states are captured on the pad buttons, and the click on Kokiri Forest (15) shows little visible change because that scene was already active.</li>
+<li><strong>Phone layout and edge states: 8/10.</strong> The 390px layout is redesigned, not squeezed: it uses the portrait key art crop (forest-tall), a 2×2 digit grid, the ocarina pad and chips stacked, and the thumbnails along the bottom (09, 10). Final seconds get a designed vignette moment on both viewports (07, 11). Arrival has its own headline, &#39;The Door of Time is open&#39;, plus a larger logo and a copy line (08, 12). The zero crossing animates a door opening (13). Nothing is negative or overlapping. On mobile, Link is blurred behind the controls and the logo is small. The arrival row of 00s is a weak afterthought.</li>
+<li><strong>Asset selection: 10/10.</strong> All five assets are used, each in a distinct job. The official logo is the title mark. The Kokiri Forest wide art is the desktop hero backdrop, and the portrait Kokiri art is the mobile backdrop. The Deku Tree and Epona/Death Mountain art are switchable scenes, with thumbnails, tied to Saria&#39;s/Epona&#39;s Song. The strongest asset (Kokiri Forest, with the blue ocarina) gets top billing. Nothing was imitated or typeset in place of the logo.</li>
+<li><strong>Asset treatment: 8/10.</strong> Everything is re-encoded to WebP at sensible sizes (80–260 KB) with small thumbnails. The Kokiri art is graded darker on the right so the gold type reads, while Link and the blue ocarina stay vivid on the left (01). The portrait art is used for mobile instead of cropping the wide one (09). The Deku Tree and Hyrule Field scenes are darkened heavily, though: the Deku Tree&#39;s face gets lost behind the digits, and Link is hidden behind the pad (16). The Epona crop drops Navi and mutes the vivid pink sky (17). On mobile the portrait art is blurred and Link sits behind the countdown (09).</li>
+<li><strong>Concept: 8/10.</strong> The page is organised around the ocarina and the Door of Time, not just a hero image with digits. The visitor plays the ocarina, and the six canonical songs do things: Song of Time reveals hundredths, Saria&#39;s/Epona&#39;s songs change the scene, Sun&#39;s Song toggles daybreak and Song of Storms brings rain. The omens advance with the countdown phase, the final seconds focus on a single digit, and the Door of Time opens at zero. It&#39;s well executed in the captures.</li>
+<li><strong>Initiative: +4 on −5 to +5.</strong> Extras: the launch time converted to the visitor&#39;s local zone and correct (&#39;Thursday, November 5 at 2:00 AM GMT-3&#39;; 05:00Z is 02:00 at −3). A songbook dialog with all six songs, correct sequences and &#39;Play it for me&#39; buttons. Keyboard play with the arrow keys and A. Navi tips (14). A scene switcher (15–17). Omens that rotate by phase. A sound toggle. All of them are faithful to the subject and verified in captures or code. No add-to-calendar or share, but what&#39;s there clearly improves the product.</li>
+<li><strong>Sound: +3 on −5 to +5.</strong> Sound plays only on the visitor&#39;s ocarina presses. The non-ocarina controls were silent (sound begins at 3.0s in 20). Each button plays its canonical note (D5, B4, D4, A4, F4), and each tone has harmonics and a shaped decay, not a drone. Spectral change is 0.053, dynamic range 30.5 dB, peak −6.3 dB, with no clipping. There is a mute toggle. Faint broadband onset transients show as vertical lines, a slight click or breath, but this isn&#39;t harsh. The note mapping is faithful and the songs are correct.</li>
+</ul>
+<h3>Changes before shipping (6)</h3>
+<ul>
+<li>[small, trivial] Make the official logo larger during the countdown. At ~140px it&#39;s undersized as the hero mark; give it the presence it gets on arrival. (01, 06 top centre)</li>
+<li>[medium, moderate] Rework the arrival layout: drop or restyle the small row of 00:00:00:00 so the arrival reads as a celebration rather than a leftover clock. (08, 12)</li>
+<li>[small, trivial] Raise the scene-thumbnail labels to at least 11px and lift &#39;Play a melody&#39; and the mobile eyebrow (&#39;Coming to Nintendo Switch 2&#39;, 4.3 contrast at 10.5px). (bottom rail 01, 09)</li>
+<li>[small, trivial] Use tabular or fixed-width numerals (or centre each glyph in a fixed box) so the digit widths don&#39;t shift every second. (countdown digits 01–05)</li>
+<li>[small, moderate] Ease the darkening on the Deku Tree and Hyrule Field scenes, and reposition the crops so the Deku Tree&#39;s face and Link aren&#39;t buried behind the countdown and pad. (16, 17)</li>
+<li>[small, trivial] Add visible hover states to the ocarina buttons and chips. (bottom rail)</li>
+</ul>
+<h3>Asset ledger</h3>
+<ul>
+<li><code>report/assets/8a1enblo1b6h1.png</code>: used. Official logo as the title mark; small during the countdown, larger on arrival.</li>
+<li><code>report/assets/thumb-1920-1414762.png</code>: used. Desktop hero backdrop (Kokiri Forest) and its scene thumbnail; Link and the blue ocarina kept vivid.</li>
+<li><code>report/assets/f55hr5n4xdoh1.jpg</code>: used. Portrait Kokiri art used as the mobile backdrop.</li>
+<li><code>report/assets/link-standing-before-the-great-deku-tree-in-the-ocarina-of-time-remake-on-switch-2.avif.png</code>: used. Switchable Great Deku Tree scene and thumbnail; heavily darkened.</li>
+<li><code>report/assets/link-on-epona-with-death-mountain-in-the-distance-in-zelda-ocarina-of-time-remake.avif.png</code>: used. Switchable Hyrule Field scene (tied to Epona&#39;s Song) and thumbnail.</li>
+</ul>
+<h2>Codebase: 12.7 / 15</h2>
+<p>A well-organised, carefully layered codebase. Pure countdown math, an injectable clock store, a pure reducer for song effects, data modules, hooks, an audio module and one component per visual piece. Unit and integration tests cover the behaviour. It stops short of 10s because of small leftovers: an unused <code>songs</code> return value, a stale comment, a redundant branch, a hook file whose name doesn&#39;t match its export, and <code>SONGS[0] as Song</code> used to mean the Song of Time. No run content tried to address reviewers.</p>
+<ul>
+<li><strong>Navigability: 9/10.</strong> The README (app/README.md) says what the project is and gives the target moment, the scripts (including <code>npm test</code>), every URL parameter including <code>?now</code>, the controls, and a directory map (<code>lib/</code> pure logic, <code>state/</code>, <code>data/</code>, <code>hooks/</code>, <code>audio/</code>, <code>components/</code>, <code>styles/</code>). The countdown math is easy to find in <code>src/lib/countdown.ts</code>: RELEASE_ISO, remainingSeconds, splitSeconds, toIsoDuration and phaseFor. The <code>?now</code> override is <code>parseNowParam</code> in the same file, wired into <code>src/lib/clock.ts</code>. Each visual piece has its own file with a co-located CSS file: Backdrop, Particles, Countdown/Digit/Hundredths, FinalCount, Arrival, Navi, OcarinaPad, Songbook, SceneSwitcher, Toast and RemainingTime (the single <code>&lt;time&gt;</code>). Tests sit next to their modules. The structure fits a project of about 60 files. What keeps it below 10: <code>hooks/useCountdown.ts</code> exports <code>useRemaining</code>, so a search by name misses it; the README phrase &quot;one folder-level file (+ css) per UI piece&quot; is awkward; and App.tsx also holds the arrival detection and the timer wiring for song effects, which a newcomer has to discover by reading it.</li>
+<li><strong>Separation of concerns: 9/10.</strong> The time logic is pure and parameterised. <code>remainingSeconds(nowMs, targetMs = RELEASE_MS)</code>, <code>msUntilNextTick</code>, <code>splitSeconds</code>, <code>toIsoDuration</code>, <code>phaseFor</code> and <code>tensionFor</code> are all plain functions in lib/countdown.ts. <code>createClock</code> in lib/clock.ts takes injected <code>wallNow</code>/<code>perfNow</code>/<code>search</code>, and <code>useRemaining</code> subscribes to it through <code>useSyncExternalStore</code>. Both have tests. RELEASE_ISO/RELEASE_MS is the only source for the target moment: format.ts and Hundredths.tsx import it rather than redefining it. The hero copy in App.tsx still hardcodes &quot;November 5, 2026 / 12:00 AM Eastern&quot;. What songs do to the page is a pure reducer (state/stage.ts) with URL-derived initial state (state/initial.ts), and both are tested. Song data and matching live in data/songs.ts. Audio is a separate singleton, and visual components take props. What keeps it below 10: App.tsx manages the toast/slow-time setTimeouts (never cleared on unmount) and detects arrival in an effect. Hundredths and FinalCount reach for the global clock and audio singletons directly instead of receiving them.</li>
+<li><strong>Readability: 8/10.</strong> Names are clear and domain-flavoured (stageReducer, applySong, matchSong, msUntilNextTick, omenFor). Most functions and components are small. Comments explain why, for example the repair of <code>+</code> decoding to a space in parseNowParam, rounding up so the display flips at the moment, right-aligned digit keys, the derived-state pattern in Digit, and the visibilitychange resync. Idioms are consistent (BEM-ish CSS, typed props, refs for animation loops). Issues a reviewer would flag: <code>SONGS[0] as Song</code> in App.tsx:69 picks the Song of Time by array index and needs a cast. Countdown.tsx:23 has a branch whose two arms do the same thing (<code>String(days).padStart(2,&#39;0&#39;)</code> vs <code>pad2</code>). The comment in state/initial.ts:25 names <code>time</code> and <code>saria</code> while the code also skips <code>lullaby</code>. App.tsx mixes the named SLOW_TIME_MS with magic numbers (4300; 1400 in useOcarina). Particles.tsx packs 220 lines into one effect with terse names (inp, k, s). <code>useCallback</code> deps include stable <code>dispatch</code>/<code>setBookOpen</code>.</li>
+<li><strong>Finish: 8/10.</strong> The scaffold is gone: no Vite/React logos, counter or default App.css content. There&#39;s a real README, index.html has its own title, meta description and theme colour, and the favicon is custom. Assets are optimised WebP and every one is used. No commented-out code, TODOs or console logs, and the automated checks find no dead code. The CSS selectors I checked all match rendered classes. Dependencies are justified: fontsource for offline fonts, and testing-library/jsdom/vitest for the tests that exist. The final commit, &#39;Remove unused hook&#39;, shows a cleanup pass. Small leftovers remain: <code>useOcarina</code> returns <code>songs: SONGS</code>, which nothing reads; <code>Clock.simulated</code> is used only by tests; and there is the stale comment in initial.ts. Commit messages don&#39;t follow a conventional format, which is minor. Overall it reads as a finished handover.</li>
+</ul>
+<h2>Process: self-critique, iteration, verification: 19.4 / 25</h2>
+<p>A strong, disciplined process: about 11 short look-fix-look rounds, each confirmed in a later screenshot. The agent ran build, lint and tests itself, and its jsdom tests caught a real bug. The handover is honest and specific, and even admits a write outside the project directory that the automated check missed. Weak spots: it declared the Deku and Field scenes fine when 011–012 show the tree buried, it never raised the small logo or labels or the leftover arrival clock row, it took no phone final-seconds shot, and it made a final dead-code edit with no new screenshot. The run contained nothing addressed to reviewers.</p>
+<ul>
+<li><strong>Verification: 8/10.</strong> 46 screenshots over 7 viewports (320×640, 390×844, 768×1024, 1024×768, 844×390, 1440×900, 1920×1080). They cover weeks out, final seconds on desktop (003, 024, 029, 030, 043, 046), a live zero crossing (029/043 mid-door, 030/044 settled) and arrival on phone (025, 045). Deep links were added so click-only states could be shot: scenes 010–012, songbook 027/028, and a temporary auto-play hook for Song of Time (032–040). The agent ran build, lint and tests itself and stopped on test failures (transcript ~5577, ~58681, ~59133). It finished with build passing, lint at 0 warnings and 35/35 tests (75150–75153). The App tests check exactly one &lt;time&gt;, ticking to PT0S and staying at PT0S. Gaps: the agent never shot phone final seconds, the final day or the final hour. Tablet was shot only weeks out. The last change (dead-code removal, 2 files ±36) was checked only by build, lint and tests, with no new screenshot.</li>
+<li><strong>Critique quality: 7/10.</strong> The critiques were specific and visual, and each led to a real fix. The agent caught: the backdrop too dark (001); Link hidden behind the digits (001 → 008); Link cropped at 1024×768 (014 → 018); a dangling date separator at 320 (016 → 019); hatching in the portrait JPG (021 → 022); the regular clock showing through the final-seconds overlay (024 → 046); the arrival title wrapping badly (025 → 045); hundredths clipped off the right edge and the toast over the logo (035 → 039). Its tests also caught a real keyboard-handler bug. Misses: in 011 and 012 the Deku Tree scene is heavily darkened and the countdown sits over the tree&#39;s face, yet the agent wrote &#39;All three worked&#39;. The undersized logo, the small thumbnail labels and &#39;Play a melody&#39;, and the leftover 00:00:00:00 row on arrival were visible in nearly every shot and never raised. For the arrival, it shrank the clock but never asked whether the row should be there at all. In 040 the phone toast still covers the logo and eyebrow, which it called right.</li>
+<li><strong>Follow-through: 8/10.</strong> Each fix can be checked in the next screenshot. The backdrop and composition changed a lot between 001 and 008. The overlay darkening shows in 024 vs 046, the hundredths move in 035 vs 039, the arrival title in 025 vs 045, and the Link crop in 014 vs 018. In 031 the scene switcher was still clipped at the bottom of the phone; it fits in 040 and 045. The early, middle and late shots show steady, clear improvement. Two weaker spots: the eyebrow contrast fix left the mobile eyebrow at about 4.3:1, and the toast fix still covers the logo on phone (040).</li>
+<li><strong>Iteration: 8/10.</strong> About 11 look-change-look rounds in about 12 minutes of screenshots. Nearly every round fixed something visible. Nothing was reverted except the temporary tmpplay hook, which was removed on purpose and checked by grep. There was no spinning on trivia. The agent stopped once its shots looked clean. It did stop with the Deku and Field crop and darkening problem, the small logo and the small labels still visible in its own shots, and it took only one look at 844×390.</li>
+<li><strong>Self-assessment: 8/10.</strong> HANDOVER.md has all seven sections. It is detailed and mostly accurate, and each round cites screenshots that show what it describes (004 full-size arrival clock, 024 overlay bleed, 035 clipping, 043 mid-door). It is candid about its gaps: unheard audio, no real touch, animations seen only as stills, the weak 844×390 viewport, and Deku and Field crops checked only at 1440. It also admits its own slip of writing previews to a scratch directory outside the project, confirmed in the transcript at line ~805, even though the measured fact says it never went outside. Overstated: &#39;All three worked&#39; for the scenes (012 shows the Deku Tree buried) and &#39;Both look right now&#39; for the toast (040 covers the phone logo). It never mentions the small logo or labels.</li>
+</ul>
+<h3>Defect ledger</h3>
+<ul>
+<li>never-mentioned, in 38 of its screenshots from shot 1: Official logo undersized (~140px) during countdown. Small logo in every countdown shot (001, 008, 012, 039…); the agent even shrank it on phone in round 2.</li>
+<li>never-mentioned, in 8 of its screenshots from shot 4: Arrival keeps a small 00:00:00:00 row that reads like a leftover clock. Round 1 shrank the clock to a &#39;compact&#39; variant but kept it, and the handover presents it as a design choice (044, 045).</li>
+<li>never-mentioned, in 44 of its screenshots from shot 1: Scene-thumbnail labels, &#39;Play a melody&#39; and mobile eyebrow too small or low contrast. Eyebrow contrast was raised in round 4 for the Deku scene only; the labels were never addressed.</li>
+<li>never-mentioned, in 30 of its screenshots from shot 1: Proportional numerals make digit widths shift every second. Visible from shot to shot as the digit spacing changes; never raised.</li>
+<li>never-mentioned, in 3 of its screenshots from shot 10: Deku Tree and Hyrule Field scenes over-darkened; countdown buries the Deku Tree face and Link. 010–012 show it; the agent wrote &#39;All three worked&#39;. Section 7 only notes that the crops were checked at 1440 alone.</li>
+<li>never-mentioned, in 0 of its screenshots: No visible hover states on ocarina buttons and chips. Can&#39;t be seen in static screenshots.</li>
+</ul>
+<h3>Claims</h3>
+<ul>
+<li>accurate: npm run build, npm run lint (0 warnings) and npm test (35 tests) all pass — Transcript 75150–75153; measured build and lint pass with 0 type errors.</li>
+<li>accurate: Exactly one visually hidden &lt;time&gt; with correct ISO duration, PT0S after zero — All 8 measured moments correct; ticks every second and reaches zero.</li>
+<li>accurate: Round 1: backdrop too dark; arrival clock at full size competing; brightened and added compact clock — 001 is dark and 004 shows a 2×2 full-size arrival clock; 008 and 044 show the fixes.</li>
+<li>accurate: Round 2/3: Link moved left, hero pushed right; confirmed in 008 — 001 has Link behind the digits; 008 has Link clear on the left.</li>
+<li>oversold: Round 4: scenes and weather via deep links; &#39;All three worked&#39; — 011 and 012 show the Deku Tree scene heavily darkened, with the countdown covering the tree&#39;s face.</li>
+<li>accurate: Round 5: fixed Link crop at 1024×768 and dangling separator at 320 — 018 and 019 re-shots.</li>
+<li>accurate: Round 6: portrait hatching removed by blur and re-encode (022 clean) — 021 vs 022.</li>
+<li>accurate: Round 7: darker final overlay, title wrap fixed, phone tightened — 024 vs 046 overlay; 025 vs 045 title.</li>
+<li>accurate: Round 8: tests caught a real window.closest bug, fixed — Transcript ~58681–59499: failures, then 35 pass.</li>
+<li>oversold: Round 10: hundredths clipping fixed and toast moved to the top; &#39;Both look right now&#39; — Clipping is fixed (039), but on phone the toast covers the logo and eyebrow (040).</li>
+<li>accurate: Round 11: 043 mid-door, 044 settled desktop, 045 phone after the moment, 046 final count — Shots match the descriptions.</li>
+<li>accurate: Round 0: preview files were written to a scratch directory outside the project, then redone inside — Transcript ~805–938 shows /Users/pedro/.jcode/scratch; the agent disclosed it honestly, although the measured fact records no outside access.</li>
+<li>accurate: Known gaps: audio unheard, touch untested, animations seen as stills, 844×390 least polished, Deku/Field crops checked only at 1440 — Consistent with the screenshot coverage (015 shot only once).</li>
+<li>oversold: Stopped when the last screenshots stopped turning up layout or legibility problems — Its own shots still showed the Deku crop and darkening, the small logo and the small labels.</li>
+<li>accurate: All five assets used — Forest wide, portrait, Deku, Epona and logo all appear in the shots.</li>
+</ul>
+<h2>Sound</h2>
+<ul>
+<li><strong>pressing each of 10 controls once, in page order:</strong> 13.6 s, 48% active, -19.1 dBFS average, dynamic range 30.5 dB, spectral change 0.053 (<a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/20-sound-controls.webp">spectrogram</a>)</li>
+</ul>
+<p>Notes each control played:</p>
+<ul>
+<li>button &quot;Play C-Up&quot;: D5</li>
+<li>button &quot;Play C-Left&quot;: B4</li>
+<li>button &quot;Play A&quot;: D4</li>
+<li>button &quot;Play C-Right&quot;: A4</li>
+<li>button &quot;Play C-Down&quot;: F4</li>
+</ul>
+<h2>Ground rules</h2>
+<ul>
+<li>Stay-inside rule in this run&#39;s brief: yes</li>
+<li>Its tool calls stayed inside the run folder.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 46, spanning 11.9 minutes</li>
+<li>Changed after the last screenshot: 2 files, +36/-36 lines</li>
+<li>Agent commits in app/: 3</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;Navi. Ask for a tip.&quot;</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/15-click-2.webp">37 days out, desktop, after clicking &quot;KOKIRI FOREST&quot;</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/16-click-3.webp">37 days out, desktop, after clicking &quot;GREAT DEKU TREE&quot;</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/17-click-4.webp">37 days out, desktop, after clicking &quot;HYRULE FIELD&quot;</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/18-click-5.webp">37 days out, desktop, after clicking &quot;Play C-Up&quot;</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/19-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+<li><a href="runs/jcode-2026-10-01_jcode-sonnet-5.5/captures/20-sound-controls.webp">Sound: spectrogram and level of pressing each of 10 controls once, in page order</a></li>
+</ul>

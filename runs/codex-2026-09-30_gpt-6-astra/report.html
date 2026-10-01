@@ -1,0 +1,124 @@
+<h1>Doomsday benchmark: ocarina-remake_codex-astra-6-medium_2026-09-30T16-23-33</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --json --model gpt-6-astra &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> codex</li>
+<li><strong>Judges:</strong> claude-opus-5-5, judged 2026-09-30 16:31 UTC</li>
+</ul>
+<h2>Score: 62.6 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>15 / 15</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>19.6 / 35</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>8.3 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, persistence, verification</td>
+<td>judged</td>
+<td>9.7 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 5 min 52 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 1</li>
+<li><strong>Tokens:</strong> 553K in total: 492K read from cache, 0 written to cache, 50K uncached input, 11K output, 662 of it reasoning</li>
+<li><strong>Estimated cost:</strong> $1.54 (Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals)</li>
+</ul>
+<h2>Countdown contract: 10 / 10</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (2/2)</li>
+<li>✓ correct remaining time (8/8 moments) (4/4)</li>
+<li>✓ ticks every second (1/1)</li>
+<li>✓ reaches zero on time (1/1)</li>
+<li>✓ no console errors or uncaught exceptions (1/1)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.5/0.5)</li>
+<li>✓ no requests to other origins (0.5/0.5)</li>
+</ul>
+<h2>Code hygiene: 15 / 15</h2>
+<ul>
+<li>No problems found</li>
+</ul>
+<h2>Experience and use of assets: 19.6 / 35</h2>
+<p>A polished, cohesive gold-on-forest-green Zelda page: typeset wordmark, fireflies, a working three-scene switcher, and a clear tabular countdown. It feels more like a tasteful template than an event. Final seconds and arrival barely change the design (arrival still offers &quot;Save the date&quot;), the mobile layout sets the title over Link, and the hero ships as a 2.8 MB PNG. No reviewer-directed instructions were found in the run.</p>
+<ul>
+<li><strong>Cohesion with the subject: 6/10.</strong> The visual language fits Hyrule: a gold Cinzel-style typeset &quot;THE LEGEND OF / ZELDA / OCARINA OF TIME&quot;, triforce glyphs for the mark and dividers, drifting green firefly particles, a deep forest-green palette pulled from the Kokiri art, and fitting copy (&quot;Time passes. The legend never fades.&quot;, &quot;Welcome back to Hyrule&quot;) (01, 08). The key art blends into the dark right side, so the page reads as one composition rather than pasted assets. It leans toward a restrained luxury-brand template, though. The only event drama is the tagline, with no ominous build-up, and final seconds (07) and arrival (08) look almost identical to weeks out.</li>
+<li><strong>Visual craft: 6/10.</strong> Clear hierarchy: eyebrow, then wordmark, subtitle, divider, tagline, digits, date line and CTAs, with consistent gold on dark green and even spacing (01). Rough edges: the micro-type (footer lines, &quot;A WINDOW INTO HYRULE&quot;, &quot;AMBIENCE OFF&quot;) is tiny and low-contrast, the scene thumbnails are small with cramped captions, the solid &quot;Save the date&quot; button sits beside a ghost &quot;Share&quot; link that doesn&#39;t match its visual weight, and on mobile &quot;THE LEGEND OF&quot; and the eyebrow nearly vanish over Link&#39;s shield (09).</li>
+<li><strong>Countdown legibility: 7/10.</strong> Large gold digits in four clearly labelled units (DAYS/HOURS/MINUTES/SECONDS) with tabular-nums (App.css:203). Layout stays stable across 02/04/05 and 06/07. The countdown is the visual focal point of the right column. The serif numerals are light, and at 00:00:00:07 (07) nothing makes the urgency stand out, but you can read the time left at a glance.</li>
+<li><strong>Motion and interactivity: 5/10.</strong> The firefly particles move between the motion frames (02 vs 03 vs 04/05). Pointer movement changes nothing (04 vs 05, no parallax). The scene switcher works: clicking Hyrule Field swaps the hero to Link on Epona and changes the caption to &quot;A world worth returning to.&quot; (18), and the active thumbnail gets a gold border and lift (17). There is a visible gold focus ring on the first Tab stop (19), CSS hover states, a WebAudio ambience toggle, an .ics download and copy-to-clipboard. Save/Share show no visible confirmation in 15/16. Competent, but modest.</li>
+<li><strong>Phone layout and edge states: 3/10.</strong> The 390px layout is restacked rather than squeezed: the image fills the top, there is a four-column countdown, stacked CTAs and a three-thumbnail row (09). But the wordmark sits directly over Link&#39;s body and shield, which hurts contrast. Final seconds (07/11) are the same design with zeros. Arrival (08/12/13) only swaps the tagline and date line to &quot;Welcome back to Hyrule / The time has come&quot; and shows 00:00:00:00, while &quot;Save the date&quot; is still offered after the date has passed. Nothing is negative or broken, but the edge states are afterthoughts.</li>
+<li><strong>Asset selection: 6/10.</strong> The strongest asset (thumb-1920 Kokiri Forest key art) is the hero. The Epona and Deku Tree AVIFs are alternate scenes behind the switcher, which gives them a job. The official OoT logo (8a1enblo1b6h1.png) was left out in favour of a typeset wordmark, which is defensible for cohesion but drops the most recognisable identity asset. The portrait f55 key art was left out even though it is well suited to the 390px layout; the mobile view instead crops the landscape hero awkwardly.</li>
+<li><strong>Asset treatment: 5/10.</strong> On desktop the hero is blended well into the dark green field with left-to-right gradients, and the Epona scene is cropped sensibly with Link and the mountain in frame (18). But kokiri.png ships as a 2.8 MB PNG with no AVIF/WebP conversion, the hero is scaled up so Link looks soft, the mobile crop pushes text over the character (09), and both hero and thumbnail images have empty alt text, even for the scene switcher&#39;s content images (App.tsx:154, 272).</li>
+</ul>
+<h2>Codebase: 8.3 / 15</h2>
+<p>A small, clean codebase. The pure countdown math sits in its own module, <code>src/countdown.ts</code>, with node:test coverage, and there are no scaffold leftovers or extra dependencies. The weak point is <code>App.tsx</code>: one ~300-line component that also holds the sound synth, the .ics export and clipboard sharing. There are also small signs of haste: the release moment is duplicated as hardcoded strings, an error state is misnamed, button rules in <code>index.css</code> are fragmented, and one generated class name is never used. Nothing in the run tried to address reviewers.</p>
+<ul>
+<li><strong>Navigability: 6/10.</strong> The layout is small and obvious: <code>src/countdown.ts</code> holds the <code>RELEASE</code> constant, <code>initialNow()</code> (the ?now parsing) and <code>remaining()</code>. <code>src/App.tsx</code> holds all the markup. <code>App.css</code> and <code>index.css</code> hold the styles, and <code>tests/countdown.test.ts</code> holds the tests. The README (21 lines) says what the project is, lists the commands, gives the Node version the test runner needs, shows the ?now preview example, and maps which file owns what. Finding the countdown math or the override takes seconds. Finding each visual piece (landscape crossfade, fireflies, header, hero, scene bar, sound, footer) means scrolling one 300-line JSX tree and a 631-line flat CSS file with no section structure. That is still manageable at this size, but none of the pieces are named components, apart from <code>Triforce</code>.</li>
+<li><strong>Separation of concerns: 5/10.</strong> <code>remaining(now)</code> is pure and tested, including the boundary at exactly zero and the post-release case. <code>initialNow()</code> reads <code>window.location</code>, but it is kept separate and small. The tick is computed as <code>origin.now + performance.now() - origin.start</code>, which is sound and survives tab visibility changes. The single source of truth breaks in several places. <code>saveDate</code> hardcodes <code>DTSTART:20261105T050000Z</code> rather than deriving it from <code>RELEASE</code>. The JSX hardcodes &#39;NOVEMBER 05, 2026&#39; / &#39;MIDNIGHT ET&#39;. <code>DTSTAMP</code> is a fixed literal. <code>App</code> itself is a god component: countdown state, scene selection, a WebAudio synth (<code>toggleSound</code>), ICS generation (<code>saveDate</code>), clipboard sharing (<code>share</code>) and all the layout live in one function with six useState hooks and two refs. <code>remaining()</code> returns a positional <code>values</code> array whose unit labels live in a separate inline array in the JSX.</li>
+<li><strong>Readability: 5/10.</strong> Names are mostly clear (<code>remaining</code>, <code>initialNow</code>, <code>toggleSound</code>, <code>saveDate</code>) and the code idioms are consistent, with no needless cleverness. Problems: (1) <code>soundError</code> state also carries the clipboard-copy failure message (App.tsx:138), so the name misleads. (2) <code>clock.values[0..3]</code> is indexed positionally in the aria-label (App.tsx:213), and labels come from an inline <code>[&#39;DAYS&#39;,&#39;HOURS&#39;,...][index]</code> inside the map. (3) Firefly positions use unexplained magic formulas (<code>(i * 31 + 7) % 100</code>). (4) The 300-line component would get a &#39;please extract&#39; comment in review. (5) <code>index.css</code> declares <code>button {}</code> in four separate blocks and <code>button, a</code> twice (lines 17-58), which reads as appended rather than written. (6) CSS uses many one-off pixel values with no custom properties for the repeated golds and greens. (7) Quote style is mixed: double quotes in the agent&#39;s files, single quotes in main.tsx and the test file. I would approve it with requested changes.</li>
+<li><strong>Finish: 6/10.</strong> The automated checks are all clean, and I confirmed it: no dead code, suppressions, debug logging or untouched scaffold. The favicon is custom. The only dependencies added are the two Fontsource packages, both justified, and the test runner is built-in node:test with no extra dependency. There are no TODOs or commented-out code. Leftovers: (1) <code>className=&quot;experience scene-${scene}&quot;</code> emits scene-0/1/2 classes that no CSS rule uses. (2) The fragmented index.css button rules look like accretion. (3) <code>tests/</code> is outside every tsconfig <code>include</code>, so the test file is never type-checked. (4) The Vite config still has the scaffold comment. (5) kokiri.png was shipped as a large PNG while the other two images were converted to AVIF. (6) The agent never committed, so the handover has no history. Overall it reads as nearly finished, with some rough edges.</li>
+</ul>
+<h2>Process: self-critique, persistence, verification: 9.7 / 25</h2>
+<p>This was a fast, one-pass run (under 6 minutes, 4 screenshots in 1.9 minutes). Functional verification was solid: build, lint and tests passed after the final edits, and a Playwright script against the production build covered the zero crossing, offline behaviour and request blocking. Visual self-critique and iteration were minimal: one mobile-shading tweak, and no response to the flat arrival state or the title text overlapping the artwork on mobile. The handover is mostly accurate but leaves out the known design weaknesses. No run content tried to address reviewers.</p>
+<ul>
+<li><strong>Verification: 6/10.</strong> The agent ran <code>npm run build &amp;&amp; npm run lint</code> three times (items 10, 17 and 24). The last run came after its final edits and also ran the 4 unit tests it added. It wrote <code>.bench/verify.mjs</code>, a Playwright script against the production preview build. It checks for exactly one &lt;time&gt;, the 10s→9s→PT0S crossing, a stable post-release state, the timezone, the invalid-?now fallback, the scene/sound/calendar/share controls, overflow at 5 widths, offline ticking and zero external requests. The measured facts agree: every countdown moment is correct and there are no console errors or cross-origin requests. The screenshots are thin, though: desktop weeks out (002), mobile full page weeks out (001 and 003), and desktop arrival after a real 11s wait (004). There is no mobile arrival, final-seconds or final-hour screenshot. All 4 shots fall within 1.9 minutes. The 7 files changed after the last shot are low visual risk (tests, README, package.json, deleted starter assets), and a build ran after them, but the verify script was not re-run after the starter assets were deleted.</li>
+<li><strong>Critique quality: 3/10.</strong> The transcript records almost no visual critique. The only statement about the screenshots is: &quot;The desktop composition is working well, and I&#39;ve strengthened the mobile shading so the title stays readable over the artwork.&quot; That names one real problem (mobile legibility) and nothing else. It missed several things a design lead would flag. In 001 and 003 the small &#39;THE LEGEND REAWAKENS / THE LEGEND OF&#39; text sits over Link&#39;s hair and face and is still hard to read after the fix. On mobile the countdown digits sit over Link&#39;s body. The arrival state (004) is identical to the countdown except for zeros and the copy, with no celebratory change, and it still offers &#39;Save the date&#39; after the date has passed. The desktop footer text is tiny and almost illegible at the bottom edge. &quot;Working well&quot; is self-congratulatory, and there is no evidence the arrival screenshot was ever critiqued.</li>
+<li><strong>Follow-through: 3/10.</strong> The one critique became one change: the mobile gradient went from .64/.15 stops to .80/.48/.12 (item 17), and the same step switched the tick interval to 1s and trimmed the font subsets. Comparing 001 with 003, the lower half is slightly darker, but the title area over Link&#39;s face looks essentially the same. Shots 002 and 004 show the desktop composition unchanged from first to last. The arrival screenshot led to no change. Improvement across the shots is marginal.</li>
+<li><strong>Persistence: 2/10.</strong> The whole session ran 5 min 52 s. The agent wrote the entire app in one heredoc, made one small tweak pass, took 4 screenshots in under 2 minutes, then wrote tests and the handover and stopped. There was no second design iteration and no attempt to push past the first &#39;good enough&#39;, even though the brief says there is no time limit and to stop only when proud to ship.</li>
+<li><strong>Honest handover: 6/10.</strong> HANDOVER.md is present and its concrete claims mostly check out against the measured facts. Build and lint pass, type errors are 0, there are no external requests or console errors, <code>?now</code> and PT0S behave correctly, and the verify script exists and passed. It names real limits: Chromium only, no Safari or physical devices, synthesized audio, clipboard depends on permissions, and no service worker. The claim to have &#39;opened desktop and full-page mobile PNGs&#39; cannot be confirmed; the transcript contains no image-view step. &#39;No known unfinished requirements&#39; is technically defensible, but the handover names none of the obvious design gaps, such as &#39;Save the date&#39; still showing after release, a flat arrival moment and weak mobile title legibility. The verification is presented as more complete than the four quick screenshots support.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 4, spanning 1.9 minutes</li>
+<li>Changed after the last screenshot: 7 files, +47/-55 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;RETURN TO HYRULE&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/15-click-2.webp">37 days out, desktop, after clicking &quot;Save the date
+↗&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/16-click-3.webp">37 days out, desktop, after clicking &quot;Share the moment↗&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/17-click-4.webp">37 days out, desktop, after clicking &quot;01
+Kokiri Forest&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/18-click-5.webp">37 days out, desktop, after clicking &quot;02
+Hyrule Field&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-astra/captures/19-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+</ul>

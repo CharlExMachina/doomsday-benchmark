@@ -1,0 +1,120 @@
+<h1>Doomsday benchmark: ocarina-remake_codex-luna-6-medium_2026-09-30T15-49-44</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --json --model gpt-6-luna &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> codex</li>
+<li><strong>Judges:</strong> claude-opus-5-5, judged 2026-09-30 16:03 UTC</li>
+</ul>
+<h2>Score: 46.4 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>11.5 / 15</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>12.1 / 35</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>5.6 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, persistence, verification</td>
+<td>judged</td>
+<td>7.2 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 6 min 32 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 1</li>
+<li><strong>Tokens:</strong> 1.2M in total: 1.2M read from cache, 0 written to cache, 62K uncached input, 12K output, 2K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.024 (Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals)</li>
+</ul>
+<h2>Countdown contract: 10 / 10</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (2/2)</li>
+<li>✓ correct remaining time (8/8 moments) (4/4)</li>
+<li>✓ ticks every second (1/1)</li>
+<li>✓ reaches zero on time (1/1)</li>
+<li>✓ no console errors or uncaught exceptions (1/1)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.5/0.5)</li>
+<li>✓ no requests to other origins (0.5/0.5)</li>
+</ul>
+<h2>Code hygiene: 11.5 / 15</h2>
+<ul>
+<li>−2 untouched scaffold files (6)</li>
+<li>−1.5 unreferenced files in src/ or public/ (3)</li>
+</ul>
+<h2>Experience and use of assets: 12.1 / 35</h2>
+<p>This is a restrained Hyrule-at-dusk page: the Epona/Death Mountain art fills the screen behind a centred gold logo and a Cinzel countdown. It is nearly static, though. The pointer does nothing, the final seconds look like the weeks-out view, and the arrival keeps &#39;The wait is almost over&#39; in the header. The Deku Tree image ships but is never used, the strongest young-Link key art was left out, and the phone crop loses Link and Epona. None of the run&#39;s files tried to address reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 6/10.</strong> Captures 01 and 08: a dark teal and gold palette over the Death Mountain dusk art, with the official gold logo in the middle and a Cinzel serif for the numbers. Some copy is on-theme (&#39;A legend returns&#39;, &#39;Your legend begins now.&#39;). It reads as Zelda-flavoured, but the chrome is a generic luxury-launch template: hairline header and footer, small spaced-out mono microcopy, and filler lines like &#39;Est. before the first light&#39; and &#39;Hyrule / Time&#39;. Nothing Ocarina-specific appears: no ocarina, song notes, Triforce or day/night motif. It is tasteful but has little drama, and nothing about it feels like an event.</li>
+<li><strong>Visual craft: 5/10.</strong> Capture 01 has a clean centred hierarchy and consistent gold hairlines, and the gradient overlays keep the text readable. But the small mono labels (&#39;Days&#39;, &#39;Hours&#39;, footer text) are tiny and very low contrast. Everything is squeezed into the middle column, leaving the bottom third of the art as dead space. On the arrived screen (08) the old taglines and the date line stack under the new headline and repeat what it says. Decent finish, not memorable.</li>
+<li><strong>Countdown legibility: 3/10.</strong> The numbers are big, cream-on-dark and clearly the hero, and the units read clearly at a glance. App.css sets tabular-nums on Cinzel, but the digits are visibly proportional: &#39;11&#39; is narrower than &#39;37&#39;, and &#39;09&#39; against &#39;10&#39; shifts width between captures 03 and 04. Each unit sits in its own column, so the jitter is contained. The unit labels are faint.</li>
+<li><strong>Motion and interactivity: 1/10.</strong> Captures 02 and 03 differ only in the ticking seconds. Moving the pointer upper-left or lower-right (04, 05) has no visible effect: no parallax or glow. There is an entry rise-in, a zoom-in on the landscape, and a pulsing dot in the header (App.css keyframes). Hover fills the share button with gold (15) and the Tab focus ring is clear (16). The digits have no transition, and the zero crossing (13) is a hard swap.</li>
+<li><strong>Phone layout and edge states: 1/10.</strong> At 390px (09) the stack is cleanly re-laid and the four units fit in one row. But the background crop loses Link and Epona entirely (only a sliver of horse at the left edge), and the footer wraps into cramped three-line text. The final seconds (07, 11) look the same as weeks out. The arrived state (08, 12) swaps in a headline, but the header still says &#39;The wait is almost over&#39; and the background art does not change. Nothing is broken or negative.</li>
+<li><strong>Asset selection: 2/10.</strong> Two assets are used: the Epona/Death Mountain AVIF as the page background and the gold logo PNG. The Deku Tree AVIF was copied to dist/art (483 KB) but is never referenced in src, so it is dead weight. The strongest, most on-theme key art was left out: the two young-Link-with-ocarina forest images (thumb-1920 and f55hr). Choosing the Epona scene as the hero is defensible, but using nothing else (for example, forest art for the arrival) is thin.</li>
+<li><strong>Asset treatment: 3/10.</strong> The Epona art is darkened with layered gradients so the text is legible, and Navi and the mountain show well on desktop, where Link frames the left side of the countdown. The logo is placed cleanly with a proper alt text. On mobile the cover crop removes the subject. The logo ships as a 279 KB PNG rather than an optimised format, and the background never changes by state.</li>
+</ul>
+<h2>Codebase: 5.6 / 15</h2>
+<p>This is a compact single-file React countdown with a correct pure-ish <code>getRemaining</code> and sound ?now handling. The handover still looks like a scaffold: the README is untouched, template assets and an unused 480KB Deku Tree image were left behind, the CSS is dense one-liners and there were no commits. No reviewer-directed instructions were found in the evidence.</p>
+<ul>
+<li><strong>Navigability: 4/10.</strong> The whole app is <code>src/App.tsx</code> (107 lines), <code>App.css</code> (96) and <code>index.css</code> (60), so anything can be found in seconds. The countdown math is <code>getRemaining</code> (App.tsx:9-24), the ?now override is at App.tsx:5-7 and the visual pieces are all inline JSX in App.tsx:54-103. A single file is reasonable at this size, but nothing is named by role: there is no <code>countdown.ts</code>, no <code>Clock</code> component and no hook. The big problem is that <code>README.md</code> is the untouched create-vite template. It never says what the project is, how ?now works or how to run it, so a new engineer learns nothing from it.</li>
+<li><strong>Separation of concerns: 4/10.</strong> <code>getRemaining(now)</code> is a pure function, but it is not exported and sits in the component module, so it can&#39;t be tested without a refactor. There are no tests. The ?now parsing runs as a module-level side effect on <code>window.location</code> (App.tsx:5-7), which ties the time source to import time. <code>RELEASE_AT</code> is the single constant for the target instant. The same moment is also hard-coded as display text in two places (&#39;November 5, 2026 · Available now&#39; at App.tsx:76, &#39;NOVEMBER 5, 2026 · MIDNIGHT ET&#39; at App.tsx:90) instead of being derived from it. The copy-link state, ticking state, finished screen, header and footer all live in one component. <code>finished</code> is returned by <code>getRemaining</code>, yet the render still re-checks it to pick &#39;PT0S&#39; over <code>duration</code> (App.tsx:88), which is redundant because the duration is already clamped to zero. The share button&#39;s <code>setTimeout</code> is never cleared.</li>
+<li><strong>Readability: 5/10.</strong> The TypeScript is short and clear. Names like <code>RELEASE_AT</code>, <code>initialNow</code>, <code>getRemaining</code> and <code>units</code> read well, and the tick logic (<code>initialNow + Date.now() - startedAt</code>) is idiomatic and correct. There are no comments, but none are needed. <code>App.css</code> crams most rules onto single very long lines (e.g. <code>.share-button</code> at App.css:51 has about 15 declarations on one line). Colours are repeated as raw rgba literals even though only <code>--gold</code>/<code>--muted-gold</code> variables exist, and there are many 7-9px magic font sizes. Some JSX lines are long, such as the aria-label at App.tsx:79 and the dense spans at App.tsx:61 and 70. I&#39;d approve it with nits: the code is readable but compressed rather than crafted.</li>
+<li><strong>Finish: 2/10.</strong> Many scaffold leftovers remain: README.md is the Vite template, and <code>src/assets/hero.png</code>, <code>react.svg</code>, <code>vite.svg</code>, <code>public/favicon.svg</code> and <code>public/icons.svg</code> are unused. index.html dropped the favicon link but left the file behind. <code>public/art/deku-tree.avif</code> (about 480KB) was copied in and never referenced. <code>dm-mono-medium.ttf</code> is declared but appears unused, since nothing uses DM Mono at weight 500. Cinzel is used at weight 500, which has no matching @font-face. The <code>data-finished</code> attribute on <code>&lt;main&gt;</code> has no CSS consumer. package.json is still <code>app</code>/<code>0.0.0</code>. The agent never committed. Build and lint pass, there are no extra dependencies, and there is no commented-out code, but it reads as unfinished.</li>
+</ul>
+<h2>Process: self-critique, persistence, verification: 7.2 / 25</h2>
+<p>This was a very short run (6.5 minutes): one build, six screenshots within 2.1 minutes, and one font-bundling tweak, with essentially no visual self-critique (&quot;both look balanced&quot;). Build, lint and countdown behavior are correct and honestly reported. However, the arrival state still shows &quot;The wait is almost over&quot; and &quot;Share the countdown&quot;, the phone crop hides the key art, and the final edits were never re-screenshotted. No attempts to address reviewers were found in the evidence.</p>
+<ul>
+<li><strong>Verification: 4/10.</strong> The agent ran <code>npm run lint</code> and <code>npm run build</code> three times, the last time after its final App.tsx edit (item_37/38). Both passed, which matches the measured facts. It took screenshots at desktop (001) and at 390px phone (002), at 10 s before the release (003) and at the exact release time (004/005). The weeks-out state was only covered by the default clock. It never checked the final hour. Its last screenshot (006) was desktop only. The phone view was never re-shot after the font and CSS change (item_27/28). The App.tsx edit (item_36) and the added font files came after the last screenshot, so 3 files and 187 lines were never looked at. All six screenshots fall inside 2.1 minutes, none of them before the first full build.</li>
+<li><strong>Critique quality: 2/10.</strong> The only critique in the transcript is &quot;The desktop and 390px phone screenshots both look balanced&quot; (item_24), plus a note that the near-zero view rendered 00:00:09. It never named a visual problem. It missed real ones in its own screenshots. In the arrival screenshot (004) the header still reads &quot;THE WAIT IS ALMOST OVER&quot; and the button still says &quot;Share the countdown&quot;, which contradicts &quot;The wait is over&quot;. On phone (002) the Link and Epona art is cropped almost entirely off the left edge, leaving a bare mountain. The unit labels and footer text are tiny, low-contrast tracked mono. Its review was generic self-approval.</li>
+<li><strong>Follow-through: 2/10.</strong> The only change after reviewing screenshots was bundling the Cinzel and DM Mono fonts locally and making small CSS tweaks. Comparing 001 with 006, the label text renders a bit crisper and the digits look slightly lighter. Nothing in the layout or composition changed. None of the problems visible in 002 and 004 were fixed: the arrival copy contradictions and the phone crop of the key art remain. The last App.tsx edit was never checked visually.</li>
+<li><strong>Persistence: 2/10.</strong> The whole session lasted 6 min 32 s, with 2.1 minutes between the first and last screenshot. It did one build, one round of screenshots and one tweak, then stopped. It never pushed past its first version and did no iterative design work.</li>
+<li><strong>Honest handover: 5/10.</strong> HANDOVER.md exists and most of its facts are accurate: build and lint pass, <code>?now=</code> works, there is a single <code>&lt;time&gt;</code> element that reads PT0S at zero, and there are no requests to other origins. The measurements confirm all of these. Its known limitations are sensible (a shared link carries the <code>?now=</code> preview timestamp, clipboard support varies). But it says the phone layout was reviewed and it &quot;adapts to narrow phone&quot;, when the phone view was never re-checked after the font and CSS change or the final App.tsx edit. It does not mention the contradictory arrival copy (&quot;almost over&quot; and &quot;Share the countdown&quot; still showing after release), the phone crop that hides Link, or the unused files (deku-tree.avif, OFL texts). The claim that the completed state&#39;s &quot;layout remains intact&quot; is true, but it glosses over those copy problems. This is mild overclaiming by omission.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 6, spanning 2.1 minutes</li>
+<li>Changed after the last screenshot: 3 files, +187/-1 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;Ocarina of Time countdown home&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/15-click-2.webp">37 days out, desktop, after clicking &quot;↗
+SHARE THE COUNTDOWN&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-luna/captures/16-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+</ul>

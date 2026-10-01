@@ -1,0 +1,222 @@
+<h1>Doomsday benchmark V1.1: ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>opencode run --auto --format json --thinking --model opencode/deepseek-v4.1-flash --variant max &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> opencode, keeping only the newest 13–25 images in the agent&#39;s context</li>
+<li><strong>Isolation:</strong> a container (<code>doomsday-agent:97c468fd0a01</code>) that saw only the run folder</li>
+<li><strong>Judges:</strong> opus, judged 2026-10-01 19:15 UTC</li>
+</ul>
+<h2>Score: 64.7 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>5 / 5</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>9.7 / 10</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>25.3 / 45</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>11.3 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, iteration, verification</td>
+<td>judged</td>
+<td>13.4 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 52 min 44 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 108</li>
+<li><strong>Tokens:</strong> 11.3M in total: 10.6M read from cache, 0 written to cache, 561K uncached input, 122K output, 76K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.379 (OpenCode&#39;s cost at its provider&#39;s prices)</li>
+</ul>
+<h2>Countdown contract: 5 / 5</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (1/1)</li>
+<li>✓ correct remaining time (8/8 moments) (2/2)</li>
+<li>✓ ticks every second (0.5/0.5)</li>
+<li>✓ reaches zero on time (0.5/0.5)</li>
+<li>✓ no console errors or uncaught exceptions (0.3/0.25)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.3/0.25)</li>
+<li>✓ no scrolling to an empty page (0.3/0.25)</li>
+<li>✓ no requests to other origins (0.3/0.25)</li>
+</ul>
+<h2>Code hygiene: 9.7 / 10</h2>
+<ul>
+<li>−0.3 dead code (knip) (1)</li>
+</ul>
+<h2>Experience and use of assets: 25.3 / 45</h2>
+<p>This is a polished, on-subject Hyrule countdown. It uses all five assets well: the official logo as hero, scenes that change by phase (Kokiri, then Hyrule Field with embers for the final seconds, then the Deku Tree at arrival), stable rolling Cinzel digits, a correct .ics download, and an opt-in ocarina with a Sheik-quote reward. Its signature feature gets the canon wrong: the Song of Time is taught and played as D-F-A rather than A-D-F, and every note is an octave high. The open ocarina panel covers the countdown, the digits hide Link&#39;s Ocarina in the key art, and the viewer count is fabricated. No run content addressed reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 7/10.</strong> Captures 01, 07 and 08 feel like Hyrule. The palette is deep forest green, gold and cream, the digits are set in Cinzel next to the official gold logo, gold and Navi-blue fireflies drift over Kokiri Forest, and the copy fits the world: &quot;The Door of Time opens in&quot;, &quot;The Door of Time is open&quot;, and an accurate Sheik quote in SongOverlay.tsx. The three scene phases (Kokiri, then Hyrule Field with an ember vignette for the final seconds, then the Great Deku Tree at arrival) stay inside the game. What holds it back: the ocarina feature, the most iconic part of the subject, gets the Song of Time wrong. ocarina.ts SONG_OF_TIME = [0,1,2,...] teaches and plays A·C↓·C→ (D F A) where the canon is C→·A·C↓ (A D F), and every note sounds an octave high (D5 to D6 instead of D4 to D5). On desktop the &quot;37&quot; digits sit right over the blue Ocarina in Link&#39;s hand (01). The heavy dark grade turns OoT&#39;s luminous forest blues into murk, especially the Deku Tree (08). The fake &quot;LIVE · 38,000 watching&quot; chrome reads more like a streaming site than Hyrule.</li>
+<li><strong>Visual craft: 7/10.</strong> The hierarchy is clear (eyebrow, logo, kicker, digits, date) and so is the system: letter-spaced uppercase Inter, gold pill buttons with blurred backgrounds, generous centred spacing (01, 08). Rough edges: when the ocarina panel opens it covers the &quot;SECONDS&quot; label and cuts the date line to &quot;NINTENDO S…&quot; (17). In the arrived state the 52px gold text-shadow is clipped by .digit {overflow:hidden}, so faint rectangles show behind each &quot;00&quot; (08, 13). The desktop page scrolls 31px past the dock. Utility text is very small: 9.6px on desktop, 8.3–8.8px on mobile. The digits overlap Link&#39;s hand and ocarina instead of sitting in open space (01). The look is polished but leans on a familiar luxury-template idiom.</li>
+<li><strong>Legibility: 7/10.</strong> The digits are about 100px cream Cinzel in fixed 0.68em cells with tabular-nums (Countdown.css), so nothing jitters across ticks (01→02→03). Every unit is labelled, and on desktop the countdown is clearly the hero under the logo. Weaknesses: the separators are small gold dots at 50% opacity, barely there (01), and mobile drops them for a 2×2 grid (09). Mobile unit labels are 8.3px, and the eyebrow is 8.8px at contrast 6.4. On mobile the tall key art puts Link directly behind the digit grid (09, 10), which muddies the numbers a little. The mobile viewer number loses its &quot;watching&quot; word and becomes a bare &quot;38,063&quot;.</li>
+<li><strong>Motion and interactivity: 7/10.</strong> The motion is restrained and on-subject: rolling digits (520ms strips), a slow Ken Burns zoom, a 2.2s crossfade between scenes (15 is caught mid-fade), drifting fireflies (01–03), a gentle logo float, an ember pulse in the final phase (07), ♪ glyphs floating off ocarina notes, a warp flash on the song, and a leaf burst at zero. Hover states exist on the dock buttons, notes and CTAs, and the active state on OCARINA and SOUND ON is gold-bordered (17, 18). The focus ring is visible (19), though on the first Tab it lands on a tiny scene dot. The pointer does nothing (04/05), which is fine. Holding it back: the ocarina panel opens on top of the countdown (17), and its main interaction teaches the wrong song.</li>
+<li><strong>Phone layout and edge states: 7/10.</strong> Mobile is designed rather than squeezed: a 2×2 digit grid, a scaled logo, icon-only dock buttons, the portrait key art swapped in for Kokiri, no overflow (09, scrollable 0). The final seconds are a designed state: the kicker becomes &quot;The final countdown&quot; in amber, the scene jumps to Hyrule Field with a pulsing ember vignette, and ticks play in the last 10s when sound is on (07, 11). Arrival is also a designed state: Deku Tree scene, gold digits, &quot;The wait is over&quot;, and &quot;Play the Song of Time&quot; and &quot;Share this moment&quot; CTAs (08, 12, 13). Issues: the mobile Hyrule crop (object-position 64%) removes Link and Epona entirely, leaving a bare mountain (11). Mobile dock buttons hide their text with display:none, so they lose their accessible names and the ocarina icon is ambiguous. &quot;Save the date&quot; stays after the date has passed (08, 12). Mobile text is 8–9px.</li>
+<li><strong>Asset selection: 9/10.</strong> All five assets have distinct jobs. The official logo is the hero title (01). The Kokiri wide art, the strongest asset with Link holding the blue Ocarina and Navi, is the default desktop scene. The portrait key art is used only as the mobile variant of the same scene (09), which suits its proportions and keeps its hatched texture small and darkened. The Deku Tree art is the arrival scene (08), and Link on Epona is the final-seconds scene (07). This is a structured scene system, not a dump, and the strongest pieces get the most prominent moments. No imitations.</li>
+<li><strong>Asset treatment: 6/10.</strong> The images are re-encoded at sensible sizes (AVIF at 130–190KB, logo as 64KB WebP). A shared gradient grade unifies the scenes, the logo gets a soft drop shadow and gold glow, and the logo has proper alt text while the decorative backgrounds are aria-hidden. Problems: the desktop composition puts the &quot;37&quot; digits over the Ocarina in Link&#39;s hand (01), hiding the subject&#39;s key object. The grade is heavy enough that the Deku Tree and Kokiri colour goes murky (08, 15). The mobile Hyrule crop cuts Link and Epona out (11). In the arrival scene the small figure of Link at the tree&#39;s foot sits under the &quot;Share this moment&quot; button (08). On mobile the portrait Link stands directly behind the digit grid (09).</li>
+<li><strong>Concept: 5/10.</strong> The page frames the release as &quot;the Door of Time&quot; opening, with scenes from Hyrule changing by phase: Kokiri while waiting, Hyrule Field with embers for the final seconds, the Great Deku Tree at arrival. A playable ocarina and the Song of Time tie the countdown to the game&#39;s own theme of time. That goes beyond the hero-image-and-digits default. But the Door of Time exists only in the copy, never visually; the phase-to-scene mapping is loose; and the song at the heart of the idea is wrong.</li>
+<li><strong>Initiative: +1 on −5 to +5.</strong> Extras: a playable five-note ocarina with keys 1–5, a progress dots tracker and a Song of Time reward overlay carrying an accurate Sheik quote. It works, but it teaches the wrong sequence, plays an octave high, and covers the countdown when open (17). There is a correct .ics download (DTSTART 20261105T050000Z, 15-minute alarm, ics.ts), a share button at arrival with a clipboard fallback, and a manual scene switcher. On the negative side, the viewer counter is invented: useViewers.ts adds random jitter to a 38,000 floor, so the page claims an audience that doesn&#39;t exist. Net: a modest plus.</li>
+<li><strong>Sound: 0 on −5 to +5.</strong> Sound is opt-in (&quot;Sound off&quot; by default) with a clear toggle and fades. It responds to the visitor (ocarina notes with attack and decay, vibrato and an overtone, visible as shaped partials in 21) and to the countdown&#39;s moments (ticks in the last 10s, an arrival arpeggio and bell, occasional D-F-A-F bells). Nothing clips (peak −11 dB). Against that: the bed is a four-oscillator drone (73/110/147/220 Hz) with a 0.05Hz filter sweep, which shows as flat horizontal bands across both spectrograms (20, 21; spectral change ≈0.065, dynamic range 4.7–9 dB). The Song of Time, the page&#39;s signature melody, is played D5 F5 A5 ×2 instead of A4 D4 F4 ×2, and every ocarina note sits an octave above the canonical D4–D5. The positives and negatives roughly cancel.</li>
+<li><strong>−2 copy that isn&#39;t for the visitor (1 false)</strong></li>
+</ul>
+<h3>Changes before shipping (13)</h3>
+<ul>
+<li>[large, trivial] Fix the Song of Time to C→ · A · C↓, twice (A D F A D F), in the hint text, the SONG_OF_TIME matcher and playSongOfTime. Drop the ocarina an octave so A=D4, C↓=F4, C→=A4, C←=B4, C↑=D5. (Ocarina panel (capture 17), ocarina.ts / audio.ts)</li>
+<li>[medium, moderate] Stop the open ocarina panel from covering the countdown&#39;s SECONDS label and the date line. Dock it below the hero, or shift the hero up while it&#39;s open. (Capture 17, desktop dock)</li>
+<li>[medium, moderate] Recompose the Kokiri desktop scene so the digits don&#39;t sit on Link&#39;s hand and the blue Ocarina. Shift object-position, or move the countdown into the open path on the right. (Capture 01 / 06, hero over Kokiri Forest art)</li>
+<li>[medium, trivial] Remove the fabricated &quot;N watching&quot; viewer count, or replace it with something true. It claims a live audience that doesn&#39;t exist. (Top-left status, all captures)</li>
+<li>[small, trivial] Fix the clipped digit glow: .digit overflow:hidden cuts the 52px text-shadow into visible rectangles behind each pair in the gold arrived state. (Captures 08, 13, 12)</li>
+<li>[small, trivial] Choose a mobile Hyrule Field crop that keeps Link and Epona instead of a bare Death Mountain. (Capture 11, SceneStage.css object-position)</li>
+<li>[small, moderate] Lighten the scene grade, especially for the Deku Tree arrival, so the key art&#39;s colour and light come through. Move the arrival CTAs off the small Link figure. (Captures 08, 13, 15)</li>
+<li>[small, trivial] Raise the small text: mobile unit labels (8.3px) and the eyebrow (8.8px at contrast 6.4) should be at least 11px; desktop dock and topbar labels are 9.6px. (Captures 09–12, and desktop dock in 01)</li>
+<li>[small, trivial] Give the mobile icon-only dock buttons accessible names (visually hidden text or aria-label), since display:none on the span removes them. (Mobile dock, captures 09–12)</li>
+<li>[small, trivial] After arrival, replace or remove &quot;Save the date&quot;. It downloads a calendar file for a moment that has already passed. (Captures 08, 12)</li>
+<li>[small, trivial] Stop the desktop page from scrolling 31px past the dock. (Capture 01)</li>
+<li>[small, moderate] Give the ambient pad some movement (chord changes, swells) or drop it so the bells and ocarina carry the sound. Right now it&#39;s a static drone. (Sound, captures 20–21)</li>
+<li>[small, trivial] Make the separators more visible: the 50%-opacity gold dots barely read between the digit groups. (Countdown, capture 01)</li>
+</ul>
+<h3>Copy that isn’t for the visitor</h3>
+<ul>
+<li>false: An invented live audience count. useViewers.ts adds random jitter to a hard-coded 38,000 floor and surges it toward the moment, so the page claims tens of thousands of people are watching when nothing measures that. (“watching”, “38,103”, “38,189”, “71,356”, “94,974”, “95,110”, “71,292”, “95,001”, “94,980”) — The page has no backend; the number is fabricated and presented as a live viewer count.</li>
+</ul>
+<h3>Asset ledger</h3>
+<ul>
+<li><code>report/assets/8a1enblo1b6h1.png</code>: used. Official logo used as the hero title (WebP, with drop shadow and gold glow) at every moment and on both viewports.</li>
+<li><code>report/assets/f55hr5n4xdoh1.jpg</code>: used. Portrait key art used as the mobile (≤700px) variant of the Kokiri Forest scene (09, 10). Darkened, which keeps its hatched texture in check, but Link ends up directly behind the digit grid.</li>
+<li><code>report/assets/link-on-epona-with-death-mountain-in-the-distance-in-zelda-ocarina-of-time-remake.avif.png</code>: used. Hyrule Field scene: the final-seconds backdrop with an ember vignette (07), and in the scene rotation. On mobile the crop removes Link and Epona (11).</li>
+<li><code>report/assets/link-standing-before-the-great-deku-tree-in-the-ocarina-of-time-remake-on-switch-2.avif.png</code>: used. Great Deku Tree scene: the arrival backdrop (08, 12, 13) and in the rotation. Graded quite dark, and the small Link figure sits under the Share button.</li>
+<li><code>report/assets/thumb-1920-1414762.png</code>: used. Default desktop scene (Kokiri Forest, Link holding the blue Ocarina with Navi) (01). The countdown digits overlap the Ocarina in his hand.</li>
+</ul>
+<h2>Codebase: 11.3 / 15</h2>
+<p>This is a tidy, well-organized codebase. <code>lib/release.ts</code> holds pure, testable time logic, every component has a clear name, and the README covers <code>?now</code> and the <code>&lt;time&gt;</code> contract. It loses points for duplicated sources of truth: the .ics file hardcodes DTSTART, and <code>audio.ts</code> repeats the Song of Time frequencies. Clever code (RollingDigit&#39;s odometer rebase, the separator key-remount trick, an unnamed PRNG) has almost no explanatory comments, and there are a few leftovers: an unused <code>IconNote</code>, two unused CSS variables, a dead <code>app--phase</code> class and no commits. Nothing in the run addressed reviewers or asked for a score.</p>
+<ul>
+<li><strong>Navigability: 8/10.</strong> The layout makes sense for the app&#39;s size. Pure logic and hooks are in <code>src/lib/</code>, visual pieces are in <code>src/components/</code> (SceneStage, Fireflies, Countdown, RollingDigit, Ocarina, SongOverlay, CelebrationBurst, Icons), and tokens and resets are in <code>src/styles/global.css</code>. The countdown math is quick to find: <code>lib/release.ts</code> holds <code>RELEASE_ISO</code>, <code>splitRemaining</code> and <code>toDuration</code>. <code>lib/useCountdown.ts</code> holds the tick and the phase. The <code>?now</code> override is <code>readVirtualOffset</code> in <code>release.ts:11</code>, which you can find by grepping for &#39;now&#39;, though &#39;virtual offset&#39; and the file name &#39;release&#39; are less obvious than something like <code>time.ts</code>. Scene data is in <code>lib/scenes.ts</code> and the song data is in <code>lib/ocarina.ts</code>. Each name matches what&#39;s on screen. <code>app/README.md</code> is real, not scaffold: it says what the page is, the target moment, run/build/lint, how <code>?now</code> works with examples, the <code>&lt;time&gt;</code> contract, and a feature list with keys. What keeps it from a 9–10: (1) the README has no code map; that exists only in HANDOVER.md, outside <code>app/</code>. (2) Styles aren&#39;t placed consistently. Countdown, Ocarina, SceneStage and SongOverlay each have their own CSS file, but the <code>.burst</code> styles for CelebrationBurst and the <code>.fireflies</code> styles are in <code>App.css</code>, so anyone looking for <code>CelebrationBurst.css</code> won&#39;t find it. (3) The topbar, hero and dock aren&#39;t components. They&#39;re inline JSX in the 243-line <code>App.tsx</code>, so &#39;where is the dock&#39; always means scrolling through App. (4) Hooks and pure modules share <code>lib/</code> without any distinction.</li>
+<li><strong>Separation of concerns: 7/10.</strong> The time logic is pure and separate from the UI. <code>splitRemaining</code>, <code>toDuration</code>, <code>describeRemaining</code> and <code>pad</code> in <code>release.ts</code> are side-effect-free and easy to test. <code>readVirtualOffset</code> takes the search string, but it calls <code>Date.now()</code> internally rather than taking it as a parameter. <code>useCountdown</code> owns the clock and computes <code>phase</code> and <code>justArrived</code>, and components get <code>parts</code> and <code>datetime</code> as props. <code>AudioEngine</code> (<code>lib/audio.ts</code>) is a plain class kept out of React, and <code>ics.ts</code> is standalone. Problems: (1) The target moment has more than one source. <code>ics.ts:14-15</code> hardcodes <code>DTSTART:20261105T050000Z</code> and <code>DTEND</code> instead of deriving them from <code>RELEASE_TIME</code>. The date also appears as literal text in <code>App.tsx:111,176</code>, <code>ics.ts:17</code> and <code>index.html</code>. (2) The Song of Time is defined twice. <code>ocarina.ts</code> defines <code>OCARINA_NOTES</code> and <code>SONG_OF_TIME</code>, but <code>audio.ts:121</code> (<code>playSongOfTime</code>) repeats the frequencies <code>[587.33, 698.46, 880, …]</code> instead of mapping the shared data. (3) Reduced motion is handled two ways. <code>App</code> reads <code>usePrefersReducedMotion</code> and passes <code>reduced</code> to SceneStage, yet each <code>RollingDigit</code> calls the hook itself, which adds about 8 extra matchMedia listeners. (4) The roll duration is defined twice: <code>ROLL_MS = 520</code> in <code>RollingDigit.tsx</code> and <code>520ms</code> in the <code>Countdown.css:75</code> transition. (5) <code>App.tsx</code> does a lot. It runs the scene-cycle timer, phase-to-scene sync, sound state, toast timers, Web Share/clipboard logic and focus restoration via <code>document.getElementById(&#39;ocarina-toggle&#39;)</code> instead of a ref. Some of that belongs in small hooks or lib functions. (6) Song-sequence detection sits inside the Ocarina component&#39;s click handler rather than in a pure function. Overall the core is well separated, but a reviewer would send back the duplicated date and song data.</li>
+<li><strong>Readability: 7/10.</strong> Most names are good: <code>splitRemaining</code>, <code>toDuration</code>, <code>describeRemaining</code>, <code>SCENE_CYCLE_MS</code>, <code>FINAL_STRETCH_MS</code>, <code>RESET_AFTER_MS</code>. Components are small, mostly 30–110 lines. The BEM CSS and named exports are consistent. The render-time <code>seenPhase</code> state sync (<code>App.tsx:56-61</code>) follows the pattern React&#39;s docs recommend. But there are almost no comments anywhere in <code>src/</code>, and several spots need a &#39;why&#39;: (1) <code>RollingDigit.tsx</code> uses the descending <code>PATTERN</code>, a 30-cell strip, a rebase at <code>position &gt;= 20</code> and a double <code>requestAnimationFrame</code> to switch transitions back on. This is the cleverest code in the repo and it has no explanation. (2) <code>Countdown.tsx:47-55</code> keys each separator on the next unit&#39;s value (<code>key={</code>d${parts.hours}<code>}</code>) to restart its CSS pulse, a non-obvious remount trick with no comment. (3) <code>CelebrationBurst.tsx:5-14</code> is an unnamed mulberry32 PRNG full of magic constants, called <code>createRandom</code>. (4) <code>useCountdown.ts</code> polls at 200 ms and drops updates within the same second. That&#39;s reasonable, but it isn&#39;t explained, and the remaining-time expression is duplicated between <code>read</code> (line 26) and the interval (line 33). (5) <code>useViewers.ts</code> makes up a &#39;watching&#39; count with nothing in the code saying it&#39;s simulated. (6) The keydown effect in <code>Ocarina.tsx:52-68</code> deliberately has no deps array so it captures the latest <code>play</code>, also without a comment. Smaller issues: <code>handleShare</code> has an awkward <code>try { …; return } catch { return }</code>. Prop types are written inline for <code>Unit</code> and <code>SceneStage</code> but as interfaces elsewhere. <code>playBell</code> uses <code>this.master!</code>. I&#39;d approve this after one round asking for comments on RollingDigit, the key trick and the PRNG.</li>
+<li><strong>Finish: 8/10.</strong> Mostly clean: no commented-out code, no TODOs, no console logging, no lint suppressions, and no scaffold leftovers in <code>src/</code>. App.css is fully rewritten, the scaffold assets are gone and the README is real. Dependencies are minimal and all used: React plus two <code>@fontsource-variable</code> packages for self-hosted fonts. Every asset is imported. Leftovers I confirmed: (1) <code>IconNote</code> in <code>components/Icons.tsx:79-93</code> is exported but never used, a dead component. (2) The CSS custom properties <code>--gold-deep</code> and <code>--leaf</code> in <code>styles/global.css:8-9</code> are never referenced. (3) <code>App.tsx:138</code> adds a modifier class <code>app--${phase}</code> that no CSS rule targets. (4) <code>package.json</code> still has the scaffold <code>&quot;name&quot;: &quot;app&quot;</code> and <code>&quot;version&quot;: &quot;0.0.0&quot;</code>. (5) The agent made no commits, so the handover repo has no history of the work. The Playwright verification script that HANDOVER.md cites (<code>verify/verify.mjs</code>) is outside <code>app/</code>, so the codebase itself ships without tests. These are small, but a reviewer would ask for them before release.</li>
+</ul>
+<h2>Process: self-critique, iteration, verification: 13.4 / 25</h2>
+<p>The agent checked thoroughly where scripts could do the work: a 12-check Playwright verifier, a production-preview arrival check and repeated build/lint runs. It fixed every functional bug it found (missing CSS imports, digit ink bleed, scene lock on load, top-bar wrap). But its visual critique was shallow and often self-congratulatory: it called the arrival &#39;Beautiful&#39; despite clipped-glow rectangles, never noticed the digits sitting on Link&#39;s hand, dismissed the ocarina panel covering the countdown three times, and shipped the wrong Song of Time melody. The handover says the final set 013–019 &#39;looks right&#39;, but five of those shots were never opened, including the mobile final shot where its own crop change removed Link and Epona. I found no text in the run addressed to reviewers. Unrelated to grading: the Asana, Intercom and other claude.ai connectors in this session need authorizing in your claude.ai connector settings (or via <code>/mcp</code>) before they can be used.</p>
+<ul>
+<li><strong>Verification: 7/10.</strong> Strong scripted checking. The agent ran <code>npm run build</code> (which includes <code>tsc -b</code>) and <code>npm run lint</code> several times; its last run was at transcript line 14717, and the measured facts agree that both pass with 0 type errors. It wrote <code>verify/verify.mjs</code> with 12 checks: one <code>&lt;time&gt;</code>, ticking 9→7 s, PT0S, no negative numbers, .ics DTSTART, console errors, external requests, keyboard Song of Time, Escape, the scene switcher and reduced-motion arrival. 12/12 pass at line 17272. It also ran a <code>vite preview</code> check of the production build with a live arrival (errors: [], external: [] at 13778), plus checks of a 672-day countdown and the .ics download. Screenshots covered phone and desktop at weeks out, final seconds and arrival, plus a 768 px tablet. It took and opened 020 after its last code edit. Gaps: 5 of 20 shots were never opened, and they include the whole final mobile set (014 weeks out, 016 final seconds, 018 arrived) plus 013 and 017. After changing the mobile Hyrule Field <code>object-position</code> (around line 12816), it never looked at the mobile final state again; 016, the only shot showing the result (a bare Death Mountain), went unopened. Its reasoning wrongly claims &#39;I&#39;ve already viewed 013&#39; (line 16904). The final-hour/final-day state was never shot, and the ocarina panel only appears in Playwright captures (screens/04, 06, 07). Of the cited interaction captures, screens/14-toast and two of the three screens/16-scene files were never opened. A parallel-shot race overwrote 006.</li>
+<li><strong>Critique quality: 4/10.</strong> It caught and fixed real functional and layout bugs: the component CSS that was never imported (002), Cinzel ink from the next digit bleeding into the rolling-digit cell (the &#39;1&#39; under &#39;54&#39; in 004-1440), the mobile date line wrapping (004-390), the scene lock not applying when the page loads straight into the final or arrived state (spotted in 006-1440, which showed Kokiri during the final seconds), &#39;NOW AVAILABLE&#39; wrapping (009-390), the &#39;0 days remain&#39; dialog copy (screens/05), and a React console error. Visual design critique was weak and often self-congratulatory: &#39;Beautiful.&#39; about 009-1440, &#39;The arrived state looks great&#39;, &#39;looks great&#39;. It missed issues that were plainly in its own screenshots: the desktop digits &#39;34&#39;/&#39;37&#39; sit on Link&#39;s hand and the blue Ocarina in 004, 006, 011, 013 and 020, and this was never raised. The clipped-glow rectangles behind each gold &#39;00&#39; are visible in 009 (both sizes), 017, 018 and screens/11, but it called the arrival &#39;Beautiful&#39;. It also missed the very dark Deku grade with the CTAs over Link, &#39;Save the date&#39; still offered after arrival, the 8–9 px labels, and the faint separators (004 note: &#39;colons visible… fine&#39;). It noticed the ocarina panel covering the date line in screens/04 and screens/06/07 three times and dismissed it each time (&#39;Fine&#39;), without noting that it also covers the SECONDS label. It never questioned the Song of Time melody, which is wrong (A·C↓·C→ instead of C→·A·C↓), even though the hint was in screens/04. Its Hyrule Field mobile &#39;critique&#39; removed Epona on purpose and made the crop worse.</li>
+<li><strong>Follow-through: 6/10.</strong> The fixes it made mostly held when it looked again. 002→004: the CSS imports restored the layout. 004→006: digit cells at 1.24 em removed the ink sliver (&#39;54&#39; clean in 006/011), and the mobile date line went to one line (&#39;NOVEMBER 5, 2026 · MIDNIGHT ET&#39; in 006-390). 006→011/015: the scene-lock fix shows Hyrule Field in the final seconds. 009-390→capture 12/screens 09: the top bar now fits on one line. screens/05 now reads &#39;11 hours, 59 minutes, 55 seconds until…&#39;. One &#39;fix&#39; went wrong: the Hyrule Field mobile object-position shift (011-390 showed Epona&#39;s head; 016 shows bare rock), and since 016 was never opened, nothing caught it. From early to late, the page jumped from 002 to 004 and then changed little: 004-1440 and 020-1440 are almost identical apart from the digit-bleed fix and a slightly stronger scrim. No design-level problem it had seen was turned into a change.</li>
+<li><strong>Iteration: 5/10.</strong> About 6–7 look/change/look cycles in roughly 42 minutes of screenshots, each small and mostly effective (CSS imports, digit cells, date line, scene lock, top-bar wrap, dialog copy). It didn&#39;t spin on trivia, and no edits failed or were reverted. But after about 25 minutes the rounds became verification captures and a handover screenshot set rather than design improvement. Its stop rationale (&#39;every requirement had a screenshot and a passing check&#39;) is about requirements, not quality. It stopped with visible problems it had seen: digits over Link&#39;s hand, glow rectangles, the panel overlapping SECONDS and the date line, and the dark arrival grade. It took a final batch of seven shots (013–019) and opened only two.</li>
+<li><strong>Self-assessment: 5/10.</strong> All seven sections are present and specific, and most product and verification claims check out: 12/12 verify checks, clean build and lint, the preview check, the <code>&lt;time&gt;</code> contract, ?now, the arrival transition, and asset sizes. It honestly discloses the fictional viewer count, the unauditioned audio, the crossfade caption mismatch and the AVIF-only images. Overstated: §2 round 7 and §4 say the &#39;definitive set 013–019 … look right at 390/768/1440&#39;, but 013, 014, 016, 017 and 018 were never opened, and they show defects (016 bare mountain, 017/018 glow boxes). It cites screens/14-toast and screens/16-scene-* when it opened only the Deku scene shot. The feature table presents &#39;A · C↓ · C→ · A · C↓ · C→&#39; as the Song of Time, which is the wrong melody. §7 frames the ocarina panel overlap as &#39;intended&#39; and limits it to the date line, when it also hides the SECONDS label. It never mentions the clipped glow, post-arrival &#39;Save the date&#39;, small text or icon-only buttons without accessible names.</li>
+</ul>
+<h3>Defect ledger</h3>
+<ul>
+<li>never-mentioned, in 0 of its screenshots: Song of Time is wrong (A·C↓·C→ ×2 instead of C→·A·C↓ ×2), and the ocarina is an octave high (A=D5).. No ./shot screenshot shows the panel. The wrong hint is visible in its Playwright capture screens/04. HANDOVER and README state the wrong sequence as the Song of Time.</li>
+<li>disclosed, in 0 of its screenshots: The open ocarina panel covers the countdown&#39;s SECONDS label and the date line.. Not in any ./shot screenshot. Seen in screens/04, 06-*, 07 and dismissed as &#39;Fine&#39; three times. §7 discloses only the date-line overlap and calls it intended.</li>
+<li>never-mentioned, in 5 of its screenshots from shot 4: The desktop Kokiri composition puts the digits on Link&#39;s hand and the blue Ocarina.. Visible in 004-1440, 006-1440, 011-1440, 013, 020. It noticed the mobile countdown over Link, but never this.</li>
+<li>disclosed, in 17 of its screenshots from shot 4: Fabricated &#39;N watching&#39; live viewer count.. §7: &#39;The viewer count is fiction&#39;. Yet it was kept and presented as a feature (&#39;viewers surge&#39;).</li>
+<li>never-mentioned, in 4 of its screenshots from shot 9: .digit overflow:hidden clips the gold glow into visible rectangles behind each pair in the arrived state.. Clear in 009-1440/009-390 (which it called &#39;Beautiful&#39;), 017, 018 and screens/11.</li>
+<li>never-mentioned, in 1 of its screenshots from shot 16: The mobile Hyrule Field crop shows bare Death Mountain, with Link and Epona cropped out.. It deliberately shifted object-position to 64% to &#39;cut the horse out&#39; after 011-390. The result appears only in 016, which it never opened.</li>
+<li>never-mentioned, in 4 of its screenshots from shot 9: The scene grade is too dark, especially the Deku Tree arrival, and the arrival CTAs sit on the small Link figure.. 009 both sizes, 017, 018. HANDOVER claims the scrim keeps the art &#39;without flattening the image&#39;.</li>
+<li>never-mentioned, in 17 of its screenshots from shot 4: Small text: mobile unit labels about 8.3 px, eyebrow 8.8 px; desktop dock and topbar labels 9.6 px.. It actually shrank the mobile topbar type further to fix the wrap.</li>
+<li>never-mentioned, in 7 of its screenshots from shot 4: Mobile icon-only dock buttons have no accessible names (span display:none).. Mobile dock in 004-390, 006-390, 009-390, 011-390, 014, 016, 018. §3 asks about keyboard reachability but not names.</li>
+<li>never-mentioned, in 4 of its screenshots from shot 9: &#39;Save the date&#39; remains after arrival and downloads a calendar entry for a moment that has passed.. Visible in the dock in 009 both sizes, 017 and 018.</li>
+<li>never-mentioned, in 0 of its screenshots: The desktop page scrolls 31 px past the dock.. ./shot takes viewport-only captures, so its screenshots couldn&#39;t show it. It never checked scroll height.</li>
+<li>disclosed, in 0 of its screenshots: The ambient pad is a static drone with no movement.. §7: audio &#39;not auditioned… synth voices are simple; may want a mix pass&#39;. That is a partial disclosure.</li>
+<li>never-mentioned, in 9 of its screenshots from shot 4: The separators are too faint: the 50%-opacity gold dots barely read.. Its 004 critique said the colons were &#39;visible… fine&#39;.</li>
+</ul>
+<h3>Claims</h3>
+<ul>
+<li>accurate: verify/verify.mjs passes all 12 checks — Transcript line 17272 shows 12 PASS lines and &#39;All checks passed.&#39;</li>
+<li>accurate: npm run build and npm run lint in app/ are both clean — Measured: build passes, lint passes, 0 type errors. The agent ran both at line 14717.</li>
+<li>accurate: vite preview on the built output: live arrival with ?now=…23:59:58, PT0S, no errors, no external requests — Preview script output at line 13778: errors: [], external: []. screens/11 and 12 were captured from it.</li>
+<li>accurate: Exactly one &lt;time&gt; element with datetime P{d}DT{h}H{m}M{s}S, PT0S from zero on — Measured countdown moments are all correct, and arrival gives PT0S.</li>
+<li>accurate: ?now behaves as if loaded at that instant and keeps ticking; reaches zero 10 s later — Measured: ticksEverySecond and reachesZero are true. screens/10 crossed zero live.</li>
+<li>false: Song of Time: A · C↓ · C→ · A · C↓ · C→ triggers the time-warp easter egg — ocarina.ts SONG_OF_TIME = [0,1,2,0,1,2] (D F A). The real Song of Time is C→ A C↓ twice (A D F), and the notes are an octave high (A=587 Hz).</li>
+<li>accurate: Zero: leaf-and-gold burst, chime, scene changes to the Great Deku Tree, copy changes and the CTA row appears — screens/11 shows the burst over Hyrule Field with the arrived copy, and screens/12 and capture 08 show the Deku Tree with the CTAs.</li>
+<li>accurate: Final minute locks to Hyrule Field at dawn and warms the grade — 015-1440 and 011-390 show Hyrule Field, &#39;THE FINAL COUNTDOWN&#39; and a warm grade.</li>
+<li>oversold: A soft radial scrim keeps the clock readable over the brightest art without flattening the image — The text is readable, but the grade is heavy: the Deku arrival (009, 017, capture 08) is very dark and the art&#39;s colour is muted (experience reviewer item 7).</li>
+<li>accurate: Save the date generates and downloads an .ics with DTSTART 2026-11-05 05:00 UTC — verify4 printed &#39;ics has DTSTART: true&#39; (line 14095). The button still shows after arrival, which the handover doesn&#39;t mention.</li>
+<li>accurate: Round 2: 002 showed raw images with no layout because the component CSS files were never imported; added the imports — Reasoning at line 9312 identifies the missing imports, and 004 shows the styled page.</li>
+<li>accurate: Round 3: 004 showed next-digit ink below the current one, the mobile date line wrapping, and a need for a scrim; fixed with 1.24 em cells, hero::before scrim and a hidden tail — 004-1440 shows a &#39;1&#39; under &#39;54&#39; and 004-390 shows &#39;SWITCH 2&#39; wrapping. Both are fixed in 006-390 and 011-1440.</li>
+<li>accurate: Round 4: 009 arrival — NOW AVAILABLE wrapped on mobile and the song dialog said &#39;0 days remain&#39;; fixed — 009-390 shows &#39;NOW / AVAILABLE&#39; wrapped, fixed in capture 12. The dialog copy came from screens/05 rather than 009 (a minor mis-citation), and screens/05 now shows &#39;11 hours, 59 minutes…&#39;.</li>
+<li>accurate: Round 5: verification caught a React console error from onSong() inside a setState updater; reworked — After the rework, the verify output at line 12605 shows &#39;console errors: []&#39;.</li>
+<li>accurate: Round 6: loading directly into the final or arrived state never moved the background; sceneIndex now initialises from the initial phase — 006-1440 (final phase) showed Kokiri. After the edit at line 10858, 011-390 and 015 show Hyrule Field.</li>
+<li>oversold: Round 7: the definitive set 013–019 plus interaction captures (screens/04, 05, 16-scene-*, 11, 12, 10, 13, 14) — 013, 014, 016, 017 and 018 were never opened. screens/14-toast and two of the three screens/16-scene files were never opened.</li>
+<li>false: §4: 013–019 and the interaction captures look right at 390/768/1440 — Most of those were never viewed, and they show defects: 016 has the bare-mountain crop, 017/018 the glow rectangles, and 019 a mid-roll offset digit.</li>
+<li>oversold: §7: with the ocarina panel open on desktop it overlaps the right end of the date line; intended — screens/04 and capture 17 show it also covering the SECONDS label. Calling it &#39;intended&#39; downplays a layout collision.</li>
+<li>accurate: §7: the viewer count is fiction — useViewers is deterministic. This is an honest disclosure, though the count still ships.</li>
+<li>accurate: §7: audio written but not auditioned; synth voices simple — The environment had no audio output. The reviewer heard a static pad, which matches &#39;simple&#39;.</li>
+<li>accurate: §7: during the 2.2 s crossfade the caption can name the incoming scene — screens/11 shows the &#39;THE GREAT DEKU TREE&#39; caption over the Hyrule Field image.</li>
+<li>accurate: Assets re-encoded to ≈750 KB from ≈6.8 MB — The agent summed 135+193+190+161+66 KB. The original assets total 6.79 MB.</li>
+<li>accurate: Final message: everything built, verified and handed over; 12/12 checks; build and lint clean — Matches the transcript and the measured facts. It doesn&#39;t claim visual perfection.</li>
+</ul>
+<h2>Sound</h2>
+<ul>
+<li><strong>the 8 seconds after clicking &quot;SOUND OFF&quot;:</strong> 8 s, 88% active, -36.4 dBFS average, dynamic range 9.1 dB, spectral change 0.064 (<a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/20-sound-sound-on.webp">spectrogram</a>)</li>
+<li><strong>pressing each of 11 controls once, in page order:</strong> 45.1 s, 98% active, -33.8 dBFS average, dynamic range 4.7 dB, spectral change 0.065 (<a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/21-sound-controls.webp">spectrogram</a>)</li>
+</ul>
+<p>Notes each control played:</p>
+<ul>
+<li>button &quot;Show The Great Deku Tree&quot;: F5</li>
+<li>button &quot;Show Hyrule Field&quot;: A2 A5</li>
+<li>button &quot;OCARINA&quot;: A2 A2 A2 A2</li>
+<li>button &quot;SOUND ON&quot;: A2</li>
+<li>button &quot;Play note A&quot;: A2 A2 F5</li>
+<li>button &quot;Play note C↓&quot;: F5 A2 D5</li>
+<li>button &quot;Play note C→&quot;: A5 F5</li>
+<li>button &quot;Play note C←&quot;: B5 A5</li>
+<li>button &quot;Play note C↑&quot;: D6 F5</li>
+</ul>
+<h2>Ground rules</h2>
+<ul>
+<li>Stay-inside rule in this run&#39;s brief: yes</li>
+<li>Its tool calls stayed inside the run folder.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 20, spanning 42.5 minutes</li>
+<li>Screenshots it never opened: 5 (13, 14, 16, 17, 18)</li>
+<li>Changed after the last screenshot: 0 files, +0/-0 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;Show Kokiri Forest&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/15-click-2.webp">37 days out, desktop, after clicking &quot;Show The Great Deku Tree&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/16-click-3.webp">37 days out, desktop, after clicking &quot;Show Hyrule Field&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/17-click-4.webp">37 days out, desktop, after clicking &quot;OCARINA&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/18-click-5.webp">37 days out, desktop, after clicking &quot;SOUND OFF&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/19-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/20-sound-sound-on.webp">Sound: spectrogram and level of the 8 seconds after clicking &quot;SOUND OFF&quot;</a></li>
+<li><a href="runs/ocarina-remake_deepseek-v4.1-flash-max_2026-10-01T18-21-09/captures/21-sound-controls.webp">Sound: spectrogram and level of pressing each of 11 controls once, in page order</a></li>
+</ul>

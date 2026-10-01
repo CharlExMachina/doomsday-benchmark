@@ -1,0 +1,224 @@
+<h1>Doomsday benchmark V1.1: ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>opencode run --auto --format json --thinking --model opencode/glm-5.3-flash --variant max &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> opencode, keeping only the newest 13–25 images in the agent&#39;s context</li>
+<li><strong>Isolation:</strong> a container (<code>doomsday-agent:97c468fd0a01</code>) that saw only the run folder</li>
+<li><strong>Judges:</strong> opus, judged 2026-10-01 19:30 UTC</li>
+</ul>
+<h2>Score: 64.7 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>5 / 5</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>22.8 / 45</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>10.9 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, iteration, verification</td>
+<td>judged</td>
+<td>16 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 1 h 7 min (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 180</li>
+<li><strong>Tokens:</strong> 20.9M in total: 19.8M read from cache, 0 written to cache, 962K uncached input, 111K output, 59K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.795 (OpenCode&#39;s cost at its provider&#39;s prices)</li>
+</ul>
+<h2>Countdown contract: 5 / 5</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (1/1)</li>
+<li>✓ correct remaining time (8/8 moments) (2/2)</li>
+<li>✓ ticks every second (0.5/0.5)</li>
+<li>✓ reaches zero on time (0.5/0.5)</li>
+<li>✓ no console errors or uncaught exceptions (0.3/0.25)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.3/0.25)</li>
+<li>✓ no scrolling to an empty page (0.3/0.25)</li>
+<li>✓ no requests to other origins (0.3/0.25)</li>
+</ul>
+<h2>Code hygiene: 10 / 10</h2>
+<ul>
+<li>No problems found</li>
+</ul>
+<h2>Experience and use of assets: 22.8 / 45</h2>
+<p>A strongly on-subject Ocarina of Time page. The official Kokiri Forest art darkens from day to a starry midnight as launch nears, and dawn breaks at zero; around it are gold-on-forest styling, Triforce ornaments, a clickable Navi, a calendar file and a playable five-hole ocarina with correct pitches. All five assets are used well and none is imitated. What holds it back: the raw ISO duration shows under the digits, the ocarina is drawn as flat clip art and its notes fail or click on very quick taps, phone shows moiré from the portrait art, and the footer has small builder and brief-framing lines. Nothing in the run addressed reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 8/10.</strong> Strongly Hyrule throughout: dark forest-green and gold palette pulled from the logo&#39;s gilt lettering, small-caps display serif echoing the logo, Triforce dividers and bullets, a floating Navi button with time-aware &#39;Hey! Listen!&#39; lines (Navi.tsx), fireflies, and the Deku Tree quote &#39;Navi… Navi, where art thou? Come hither…&#39;, which is accurate to the game (01, 09). The day-to-night-to-dawn shift over the countdown (01 → 06/07 → 08) makes midnight feel like an event that belongs to the forest. Held back by the drawn ocarina (16–18): a pale cyan, flat, clip-art egg on a tube. It is lighter than the vivid cobalt Ocarina of Time Link holds in the key art and looks foreign beside the painterly artwork. The zero chime is a generic A-major arpeggio (audio.ts bells) rather than anything from the game.</li>
+<li><strong>Visual craft: 7/10.</strong> The hero is composed with care: centred logo, fixed-width gold digits with diamond separators, eyebrow and meta lines in spaced small caps, pill header chips (02). Story and ride cards have tasteful rounded corners, gold hairline borders and soft shadows (15). Rough edges: (1) the raw ISO duration string &#39;P37DT11H10M2S&#39; sits as visible grey monospace text under the digits in every capture, an off-style element; (2) the &#39;Play the ocarina&#39; heading is a small body-serif title while the other sections use large small-caps headings (01, 16), so the hierarchy is inconsistent; (3) the ocarina SVG is flat and clip-art-like next to the rendered art, and floats in a large empty dark band (16); (4) on phone, the portrait art&#39;s baked-in hatching/moiré shows across the hero (10–12); (5) the footer fine print is 0.62rem at 40% opacity.</li>
+<li><strong>Legibility: 8/10.</strong> Large gold serif digits in fixed-width reel cells (0.74em per cell in global.css), so ticks don&#39;t jitter. Diamond separators on desktop and a clear 2×2 grid on phone (10, 11); the remaining time reads at a glance in every state. Held back by the unit labels: 0.66rem with wide letter-spacing in dim ink over a busy photo (01 at &#39;DAYS/HOURS&#39;). The visible ISO string adds noise right below the digits. On desktop the logo carries more visual weight than the countdown. The 9.3px A/S/D/F/G key hints on the pads are tiny.</li>
+<li><strong>Motion and interactivity: 7/10.</strong> Motion is purposeful. The digits roll like an odometer (0.45s cubic ease). The scene darkens toward night and brightens to dawn with the countdown (06/07 vs 01/08). Stars twinkle, fireflies drift, Navi floats and pulses, the hero has a scroll parallax, the scroll cue bobs, and the arrival title fades in from a blur. Ocarina pads press down with a gold glow and a rising ♪. A clear double gold focus ring shows on Tab (19). Held back by: the reel spins through every digit when it wraps (0→9, 59→00), which shows as half-cut digits mid-spin in 04; pads have no hover state, and Enter or Space on a focused pad does nothing (pointerdown only); the calendar button gives no confirmation after the click (15); the pointer frames (04/05) show nothing reacting to the pointer.</li>
+<li><strong>Phone layout and edge states: 8/10.</strong> The 390px layout is designed, not squeezed: portrait art swapped in for the hero, a 2×2 digit grid with separators hidden, the simulated-time chip and sound label hidden, cards stacked (09–12). Arrival is a designed moment: &#39;The clock has struck / The legend has returned / out now&#39;, a Triforce on the dial, the live pill reading &#39;The legend has returned&#39;, a dawn tint, and bells if sound is on. The zero crossing worked live (13). The final seconds are thinner: in the last minute only the digits brighten and the dawn veil starts, so 07/11 read almost the same as 06/10. The phone hero shows the source art&#39;s moiré, and the digits sit over Link&#39;s figure (09).</li>
+<li><strong>Asset selection: 9/10.</strong> All five assets are used in fitting roles: the official logo as the hero title, the wide Kokiri Forest art as the desktop hero, the portrait art as the phone hero (a smart pairing), the Deku Tree art for the &#39;Chapter one&#39; story card, and Epona with Death Mountain for the &#39;Ride out&#39; card. The strongest pieces (logo, forest art) get the most prominence. The one weak call is the portrait art: it carries a baked-in hatching pattern that shows on phone, so cropping the forest art may have served better there.</li>
+<li><strong>Asset treatment: 8/10.</strong> All images are converted to resized WebP with srcset and a separate phone source. The logo keeps its transparency and sits cleanly over the art. The hero art gets a time-driven veil and tint, so the official art itself turns to night and then dawn, a clever reuse of a single image (01 vs 06 vs 08). The cards use alt text that describes the scene; decorative hero images have empty alt, with an sr-only h1. Held back by: the moiré of the phone portrait art, which a darker or blurred treatment could hide (10–12); the art&#39;s own Navi glow sits right beside the logo shield on desktop (02, near 495,295) while a second, code-drawn Navi floats top-right; the 317 KB poster is heavy for an 800px image.</li>
+<li><strong>Concept: 8/10.</strong> There is a real organising idea beyond the hero-and-digits default: the Kokiri Forest moves from daylight through dusk into a starry midnight as launch approaches, a dial hand sweeps from 6 to 12 over the span, and at zero dawn breaks with a Triforce at the top of the dial (theme.ts stops, Dial.tsx; captures 01, 06, 07, 08). The playable ocarina extends the &#39;instrument of time&#39; theme. It is executed visibly, though the dial is small and the ocarina section feels somewhat apart from the time narrative.</li>
+<li><strong>Initiative: +3 on −5 to +5.</strong> Useful extras that work: a downloadable .ics event at 23:45 ET (America/New_York TZID; the &#39;15 minutes before launch&#39; claim is correct); a playable five-hole ocarina with the canon pitches D4 F4 A4 B4 D5 and A/S/D/F/G hold-to-play keys; a clickable Navi whose line changes with the time left. All are on-subject and add to the page. Held back by: no song recognition (playing the Song of Time does nothing), the quick-tap audio bug, no confirmation after the calendar download, and no time shown in the visitor&#39;s own zone.</li>
+<li><strong>Sound: +1 on −5 to +5.</strong> Sound waits for the visitor: off by default, with a header toggle that has a clear on/off state and is remembered between visits; pressing an ocarina hole turns sound on, as the copy says. Pitches match canon (<a href="mailto:A4@2.94s">A4@2.94s</a>, <a href="mailto:B4@3.58s">B4@3.58s</a>, <a href="mailto:D5@4.21s">D5@4.21s</a> detected), and the voice has a breath layer and delayed vibrato. But the recording (20) shows the D4 and F4 holes giving only broadband breath noise with no tone, while the A4/B4/D5 hits have bright full-band click lines at onset and a peak of −0.3 dB. noteOff reads env.gain.value straight after noteOn, so on very short taps the gain is either still near zero (no tone) or reads the default 1.0 (a loud click). The zero &#39;bells&#39; are a generic A-major arpeggio rather than an Ocarina of Time motif. Net mildly positive, given that normal-length presses work.</li>
+<li><strong>−10 copy that isn&#39;t for the visitor (2 builder, 1 leaked, 1 filler)</strong></li>
+</ul>
+<h3>Changes before shipping (13)</h3>
+<ul>
+<li>[small, trivial] Visually hide the &lt;time&gt; ISO duration (&#39;P37DT11H10M2S&#39;, &#39;PT0S&#39;) that shows as grey monospace text under the countdown; keep it in the DOM for machines only. (Hero countdown, all captures (01, 06–12))</li>
+<li>[medium, moderate] Fix the ocarina voice on quick taps: don&#39;t read env.gain.value in noteOff (use cancelAndHoldAtTime or track the scheduled level), and enforce a minimum note length so a fast tap still sounds the pitch without a click. In the recording, the D and F holes gave only breath noise and the others clicked near 0 dB. (Ocarina section / audio.ts noteOn/noteOff (capture 20))</li>
+<li>[medium, moderate] Redraw the ocarina so it reads as the Ocarina of Time from the key art: deeper cobalt blue, a silver mouthpiece, properly shaded body. The pale cyan flat egg looks like clip art next to the painterly assets. (Ocarina section (16–18))</li>
+<li>[small, trivial] Add hover states to the ocarina pads, and let Enter/Space on a focused pad play its note (only pointerdown and global letter keys work now). (Ocarina pads (16–18, 19))</li>
+<li>[small, trivial] Style the &#39;Play the ocarina&#39; heading like the other section titles (large small-caps display); right now it is a small body-serif line. (Ocarina section heading (01, 16))</li>
+<li>[medium, moderate] Hide the baked-in hatching/moiré of the portrait art on the phone hero: blur or darken the veil more, or crop the wide Kokiri Forest art for phones instead. (Phone hero (10, 11, 12))</li>
+<li>[small, trivial] Make the countdown unit labels (DAYS/HOURS/MINUTES/SECONDS) larger and brighter; at 10.5px dim ink over the photo they fade. (Hero countdown labels (01, 09))</li>
+<li>[small, moderate] Make the final seconds a moment of their own: e.g. the dial hand or Navi pulsing, a heartbeat on the seconds digits, a stronger build into dawn. Right now 07/11 look nearly the same as 06/10. (Final seconds (07, 11))</li>
+<li>[small, moderate] Make the digit reels roll one step on wrap instead of spinning through every digit (0→9, 59→00 show half-cut digits mid-spin). (Countdown reels (04))</li>
+<li>[small, trivial] Replace the generic A-major arrival arpeggio with an Ocarina of Time motif played on the ocarina voice (e.g. Song of Time A4 D4 F4 ×2). (Arrival sound (audio.ts bells))</li>
+<li>[small, trivial] Reposition or crop the desktop hero art so its own Navi glow doesn&#39;t sit beside the logo shield, competing with the code-drawn Navi top-right. (Desktop hero (02, near the logo&#39;s left edge))</li>
+<li>[small, trivial] Give feedback after &#39;Remind me at midnight&#39; (e.g. &#39;Added — check your downloads&#39;). (Ride section button (15))</li>
+<li>[small, trivial] Rewrite the footer: drop &#39;doomsday clock&#39; and the &#39;Works offline · No trackers&#39; line. (Footer (01, 09))</li>
+</ul>
+<h3>Copy that isn’t for the visitor</h3>
+<ul>
+<li>builder: The machine-readable ISO duration required by the brief is shown as visible text under the countdown, to real visitors too. (“P0DT0H42M11S”, “P0DT0H0M2S”, “PT0S”, “P34DT9H30M31S”, “P34DT9H30M25S”) — It is the brief&#39;s &lt;time&gt; datetime testing hook exposed as copy; a visitor gains nothing from an ISO 8601 duration string.</li>
+<li>leaked: The footer calls the page a &#39;doomsday clock&#39;, the brief&#39;s Marvel-livestream framing, which this Zelda launch doesn&#39;t use. (“A fan-made doomsday clock for the Ocarina of Time remake. Not affiliated with or endorsed by Nintendo. The Legend of Zelda and Ocarina of Time are trademarks of Nintendo.”) — &#39;Doomsday clock&#39; comes from the brief&#39;s Avengers: Doomsday reference, not from the subject; the fan-made disclaimer itself is fine.</li>
+<li>builder: The footer fine print describes the build&#39;s technical requirements. (“Works offline · No trackers · See you at midnight.”) — &#39;Works offline&#39; and &#39;No trackers&#39; restate the brief&#39;s offline / no-other-origins requirements, not anything a launch visitor needs.</li>
+<li>filler: The third feature bullet repeats the date instead of naming a feature. (“Midnight, November 5. Be ready.”) — The date already appears in the hero eyebrow, the meta line and the paragraph just above; as a list item it says nothing new.</li>
+</ul>
+<h3>Asset ledger</h3>
+<ul>
+<li><code>report/assets/8a1enblo1b6h1.png</code>: used. Official logo, the hero title at the centre of the forest art, transparent WebP with an sr-only h1.</li>
+<li><code>report/assets/f55hr5n4xdoh1.jpg</code>: used. Portrait key art as the phone hero backdrop (≤700px). Good composition fit, but its baked-in hatching/moiré shows through (10–12).</li>
+<li><code>report/assets/link-on-epona-with-death-mountain-in-the-distance-in-zelda-ocarina-of-time-remake.avif.png</code>: used. Card image for the &#39;Ride out at first light&#39; section next to the calendar button, with descriptive alt.</li>
+<li><code>report/assets/link-standing-before-the-great-deku-tree-in-the-ocarina-of-time-remake-on-switch-2.avif.png</code>: used. Card image for &#39;Chapter one · The Great Deku Tree stirs&#39;, paired with the Deku Tree quote.</li>
+<li><code>report/assets/thumb-1920-1414762.png</code>: used. Desktop full-bleed hero, tinted by the time-driven day→night→dawn veil; the strongest asset given the most prominence.</li>
+</ul>
+<h2>Codebase: 10.9 / 15</h2>
+<p>A clean, conventionally organized React codebase: pure, testable time math in <code>lib/time.ts</code>, an isolated ?now virtual clock, one clock feeding a single <code>Remaining</code> value, and a README that maps every file. The main deductions are the dead <code>audio.tick()</code>, which README and HANDOVER both describe as a working feature, a hand-written duplicate of the target moment in the <code>.ics</code> generator, a misnamed <code>activeRef</code>/<code>setActiveSafe</code> pattern in OcarinaSection, unused CSS tokens, almost no why-comments, and no commits. Nothing in the run addressed reviewers or asked for a score.</p>
+<ul>
+<li><strong>Navigability: 8/10.</strong> The layout is conventional and right for the size: <code>src/lib/</code> (time, theme, audio), <code>src/hooks/</code> (useNow, useMotion), <code>src/components/</code> (one file per visual piece) and <code>src/styles/global.css</code>. A newcomer finds the countdown math in <code>lib/time.ts:18</code> (<code>remainingFrom</code>) and the ?now override in <code>lib/time.ts:57-88</code> (<code>getVirtualStart</code>/<code>currentTime</code>), with <code>hooks/useNow.ts</code> driving it. Every visual piece has its own file (Countdown, Dial, Hero, Ambience, Navi, OcarinaSection, RideSection). <code>README.md</code> says what the project is, gives the run/build/lint commands, shows ?now examples and maps every important file, so finding things takes well under a couple of minutes. What holds it back: (1) <code>global.css</code> is one 1100-line file with no section comments. Component class prefixes (<code>cd-</code>, <code>dial-</code>, <code>navi-</code>, <code>oc-</code>, <code>hero-</code>) make it searchable, but you have to scroll or grep it. (2) <code>hooks/useMotion.ts</code> holds <code>usePrefersReducedMotion</code>, <code>useParallax</code> and <code>useScrolled</code>. None of them is called useMotion, and useScrolled has nothing to do with motion. (3) The README (<code>README.md:37</code>) lists &quot;the per-second tick&quot; as part of the audio engine, and that feature never plays (see Finish), so the map points at something that isn&#39;t there. (4) <code>worldProgress</code>, which drives the dial, is in <code>theme.ts</code>, while the anchor date it depends on is in <code>time.ts</code>.</li>
+<li><strong>Separation of concerns: 7/10.</strong> The time logic is well isolated. <code>remainingFrom(nowMs)</code>, <code>formatISODuration</code> and <code>remainingLabel</code> in <code>lib/time.ts</code> are pure functions of their inputs and easy to unit-test. The virtual clock is cached at module level and kept to two functions. <code>TARGET_ISO</code> is the one constant the logic uses. State ownership is clean: one clock from <code>useNow</code>, then one <code>Remaining</code> built in <code>App.tsx:17</code>, which theme, dial, Navi and Countdown all derive from. The theme&#39;s pure sampler (<code>sampleWorld</code>) is separate from the hook that writes the CSS variables, but it isn&#39;t exported, so it can&#39;t be tested directly. What keeps the score down: (1) The target moment has a second, hand-written copy. The <code>.ics</code> in <code>RideSection.tsx:11-12</code> hard-codes <code>DTSTART;TZID=America/New_York:20261104T234500</code> and <code>DTEND</code> instead of deriving them from <code>TARGET_MS</code>, and <code>DTSTAMP:20261001T120000Z</code> is frozen at the day the agent worked. Hero (<code>Hero.tsx:44,59</code>) and StorySection also hard-code the date in copy. (2) <code>useIsVirtualTime</code> (<code>useNow.ts:26</code>) is a plain function with a hook&#39;s name. (3) The simulated-time formatting is done inline in <code>App.tsx:38-45</code> when it belongs in Header. (4) The digit reel offset <code>1.16em</code> is a magic number shared between <code>Countdown.tsx:14</code> and the CSS (<code>global.css:376,388,392</code>) with no variable linking them. The parallax hook also writes <code>scale(1.12)</code> inline (<code>useMotion.ts:28</code>), which couples it to the CSS layout. (5) <code>OcarinaSection</code> puts audio wiring, keyboard handling, floating-note state and a 30-line inline SVG body in one 172-line component.</li>
+<li><strong>Readability: 7/10.</strong> Overall the code is tidy. Files are small, names are mostly clear (<code>remainingFrom</code>, <code>naviMessage</code>, <code>DigitReel</code>, <code>noteOn/noteOff</code>), JSX is idiomatic and there&#39;s no clever trickery. Problems I&#39;d flag in review: (1) In <code>OcarinaSection.tsx:33</code>, <code>const activeRef = active</code> is named like a ref but is the state value, and <code>setActiveSafe</code> (line 34) isn&#39;t safer than anything. Because <code>press</code> depends on <code>active</code>, the window keydown/keyup listeners are torn down and rebound after every note. (2) <code>theme.ts</code> clamps the interpolation factor twice (in <code>sampleWorld:77</code> and again in <code>mixRGBA:29,35</code>), which looks like debugging residue. <code>mixRGBA</code> builds a tuple with an awkward multi-line cast and then destructures it again. Helpers are declared out of order (<code>worldProgress</code> sits between <code>mixRGBA</code> and the <code>toRGBAString</code> it uses). There&#39;s a <code>DAY</code> constant, but hours are written inline as <code>30 * 60 * 60 * 1000</code>. (3) In <code>Countdown.tsx:27</code>, days use <code>String(...).padStart(2,&#39;0&#39;)</code> while the next lines use <code>pad2</code>, which does the same thing. The className is a nested ternary (line 32), and <code>formatISODuration</code> is computed twice per render (lines 68-69). (4) There are almost no why-comments where they&#39;re needed: the duplicate theme stop at <code>10 * 1000</code> that holds full night from 3h down to 10s, why <code>performance.now</code> is used for ?now, why the anchor is Sep 24, the 1.16em coupling, and the synth constants in <code>audio.ts</code>. The only comment in the source is <code>/* private mode */</code>. (5) <code>aria-hidden=&quot;false&quot;</code> on the Navi wrapper (<code>Navi.tsx:33</code>) does nothing.</li>
+<li><strong>Finish: 7/10.</strong> There&#39;s no commented-out code, no TODOs, no stray debug logging (the one <code>console.warn</code> for an invalid ?now is intentional), no scaffold demo files, and build and lint are clean. Dependencies are justified: two @fontsource packages for self-hosted fonts, everything else from the scaffold. All six bundled images are referenced. Leftovers I found: (1) <code>audio.tick()</code> (<code>lib/audio.ts:71-86</code>) is dead. Nothing calls it, yet the README (&quot;the per-second tick&quot;) and HANDOVER (&quot;a soft per-second clock tick accompanies the visuals while sound is on&quot;) both describe it as a shipped feature. That is an abandoned, unwired feature with docs that claim otherwise. (2) The CSS tokens <code>--bg-deep</code> and <code>--navi</code> (<code>global.css:3,9</code>) are never used, and Countdown adds an <code>is-zero</code> class that has no styles. (3) <code>.ics</code> <code>DTSTAMP</code> is a frozen literal. (4) <code>.stars i { top: 0 }</code> is always overridden inline. (5) The agent never committed, so the handover is the scaffold commit plus one large uncommitted working tree with no history. (6) <code>package.json</code> still says <code>&quot;name&quot;: &quot;app&quot;</code>, version <code>0.0.0</code>. The HANDOVER also describes the code a little inaccurately: it calls Ambience a &quot;seeded&quot; star field when it uses <code>Math.random</code>, and says &quot;no timers besides the rAF loop&quot; when Navi, the ocarina and audio all use setTimeout. Each of these is small, but together they read as not quite fully closed out.</li>
+</ul>
+<h2>Process: self-critique, iteration, verification: 16 / 25</h2>
+<p>A careful, mostly honest run. It fixed real bugs it found in its own screenshots (broken dial, blank sections, a theme engine producing invalid colours, digits that failed to paint, the zero-state layout) and backed them with DOM probes and an offline check of the production build. It missed problems that sat in its own screenshots: phone moiré in 8 shots, a &#39;Play the ocarina&#39; heading left mismatched right after fixing the identical Ride heading bug, and a clip-art ocarina it called &#39;good&#39;. The handover oversells in places: round 3 cites a screenshot it never opened and screenshots that don&#39;t show the claimed confirmation, and it claims keyboard parity on the pads that doesn&#39;t exist. No run content addressed reviewers. The agent stayed inside its folder; one write to a stray absolute path (/tmp-preview.log) failed with a permission error and the handover doesn&#39;t mention it.</p>
+<ul>
+<li><strong>Verification: 7/10.</strong> The agent ran lint and build at the start, after each round, and again after its last CSS edits (transcript ~20218: oxlint clean, &#39;built in 155ms&#39;). It also checked the production build with <code>vite preview</code> plus Playwright, which showed P0DT0H0M5S → PT0S, no console errors and <code>external: []</code> (~21026). It wrote its own probes for DOM and computed styles (<code>datetime</code> ticking, theme variables, exactly one active ocarina pad, Navi bubble), plus extra captures in .tmp-preview: final 8 s (roll-8s, reel-8s, reel-clean), a burst around a second boundary, dusk at 7.5 d, Navi and pad presses, and ride-fixed. The <code>./shot</code> captures cover 1440, 768 and 390 at weeks-out, desktop final seconds (011) and arrival (012/017/020 desktop, 013/021 phone). 017 is a live crossing from T−5 s. Gaps: 5 of 21 screenshots were never opened (003, 007, 010, 015, 021), so the phone full-page after the pill fix and the final phone zero state went unseen. There is no phone or tablet capture of the final day or final seconds. After the last screenshot it edited global.css: the ride h2 change was checked with a probe, but the phone eyebrow letter-spacing was not looked at. The ocarina&#39;s sound behaviour on quick taps was never tested in any way.</li>
+<li><strong>Critique quality: 6/10.</strong> Its critiques were specific, visual and led to fixes. 001: the dial &#39;reads as a glitch&#39;, the hero is bottom-heavy and the meta line clipped. 002: zooming in found the missing seconds digit. 004: zooming in found the dial hand clipped outside the semicircle. 006: the below-fold sections were blank. 011: the night theme was not applied, which it traced to invalid CSS rgba values. Later it found the glow boxes behind the reels, the zero-state meta pushed below the fold (012), the pill wrapping (009) and the Ride h2 at browser-default size (018). It also missed problems in its own screenshots. The phone hero&#39;s hatching/moiré shows in 8 phone shots, yet it called them &#39;Mobile looks strong&#39;. It found the Ride h2 bug and fixed only that, though &#39;Play the ocarina&#39; sits in the same capture with the same small body-serif problem and is still mismatched in the final page. It critiqued the ocarina&#39;s shape but never its pale cyan, clip-art look, and called it &#39;looks good now&#39;. It never raised the dim 10.5px unit labels, the art&#39;s own Navi beside the logo (very visible in 016), the footer copy, or the visible ISO line. The handover&#39;s round 3 says 003 found the blank sections and &#39;004–006 confirmed all sections render&#39;. In fact 003 was never opened, 004 and 005 are viewport-only shots, and 006 is the capture that showed the sections blank.</li>
+<li><strong>Follow-through: 7/10.</strong> Most fixes held in later captures: the dial went from squiggle (001) to semicircle (002) to full doomsday dial (005), the blank sections in 006 rendered in 008, the night theme broken in 011 shows in the grader&#39;s captures 06 and 07, and the zero-state meta clipped in 012 fits in 017 and 020. The pill wrapping in 009 is one line in 014, and the Ride h2 fix shows in grader capture 09. The missing-digit bug took three attempts: odometer cells, then contain:paint, then reels. 014 still showed a missing digit before the reels fixed it in 018. The reel rewrite then introduced the wrap spin through every digit, which it never noticed. The ocarina rework changed its outline but left the clip-art look (008 vs 018 are nearly the same). The page improved clearly from 001/006 to 018, but several issues it had seen were left as they were.</li>
+<li><strong>Iteration: 6/10.</strong> Over about 43 minutes of screenshots, nearly every round fixed something real: dial, layout, reveals, theme engine, digits, glow, zero layout, pill, h2. The digit bug took a long detour of three fixes, but each attempt was based on evidence (DOM probes, pixel sampling) and the last one worked. It stopped once its own matrix passed, but problems were still visible in its own screenshots: the mismatched &#39;Play the ocarina&#39; heading, the phone moiré and the clip-art ocarina. Its stated stopping rule, &#39;only remaining complaints… matters of taste, not defects&#39;, does not match the page.</li>
+<li><strong>Self-assessment: 6/10.</strong> All seven sections are present and detailed. §7 honestly lists several real gaps (free-play ocarina, synth voice, arbitrary anchor date, .ics VTIMEZONE, overlap at 700–900px). Much of the process account matches the transcript: rounds 1, 2, 6 and 8, the alpha-rounding bug, the useRef import, the stale HMR module, and the production preview check. It oversells or gets wrong several things. Round 3&#39;s citation is false. It cites 007, 015 and 021 as looked at although they were never opened. It places the burst-capture confirmation in the reel era, but the burst was taken before the reels. It claims &#39;keyboard and pointer parity&#39; for the ocarina pads, but pads respond only to pointerdown and global letter keys, not Enter/Space on focus. It calls the voice &#39;pleasant&#39; while quick taps click or give only breath noise. It says the final 10 s &#39;bloom into a dawn glow&#39;, but grader captures 07 and 06 look nearly the same. It says nothing it could find was a defect. The final message&#39;s &#39;21 screenshots&#39; implies 21 looks, but only 16 were opened.</li>
+</ul>
+<h3>Defect ledger</h3>
+<ul>
+<li>never-mentioned, in 21 of its screenshots from shot 1: The ISO duration (&lt;time&gt;) shows as grey monospace text under the countdown. Presented as a deliberate &#39;livestream telemetry readout&#39; in §1; never questioned as visual noise.</li>
+<li>never-mentioned, in 0 of its screenshots: Ocarina voice on quick taps: noteOff reads env.gain.value; D/F holes give only breath noise, others click. Audio was never tested for timing; §7 calls the synth voice &#39;pleasant&#39;. audio.ts:188 still reads env.gain.value.</li>
+<li>claimed-fixed, in 5 of its screenshots from shot 8: Ocarina drawing is a pale cyan flat egg that reads as clip art next to the painterly assets. Agent critiqued the &#39;spoon/egg&#39; shape, reshaped it and declared it &#39;finally reads as an instrument&#39; / &#39;looks good now&#39;. Colour and rendering unchanged (018, grader capture 16).</li>
+<li>never-mentioned, in 0 of its screenshots: Ocarina pads have no hover state; Enter/Space on a focused pad doesn&#39;t play. Only onPointerDown and global keys in OcarinaSection.tsx; handover&#39;s &#39;What I looked for&#39; claims keyboard/pointer parity.</li>
+<li>never-mentioned, in 5 of its screenshots from shot 8: &#39;Play the ocarina&#39; heading is a small body-serif line, unlike the other section titles. Agent found and fixed the identical Ride h2 bug in shot 018 but missed this heading in the same capture; still mismatched in the final page.</li>
+<li>never-mentioned, in 8 of its screenshots from shot 7: Phone hero shows the portrait art&#39;s baked-in hatching/moiré. Visible in 007, 009, 010, 013, 014, 015, 019, 021; agent wrote &#39;Mobile looks strong&#39; / &#39;poster backdrop worked&#39;.</li>
+<li>never-mentioned, in 16 of its screenshots from shot 1: Countdown unit labels (DAYS/HOURS/…) too small and dim over the photo. Every counting-state hero shot.</li>
+<li>never-mentioned, in 2 of its screenshots from shot 11: Final seconds aren&#39;t a moment of their own; they look almost the same as the final hour. Handover claims a dawn bloom in the final 10 s; at 6 s it is faint (grader capture 07 vs 06).</li>
+<li>never-mentioned, in 0 of its screenshots: Digit reels spin through every digit on wrap (9→0, 59→00), showing half-cut digits. Introduced by the late reel rewrite; the burst capture the handover cites was taken before the reels existed.</li>
+<li>never-mentioned, in 0 of its screenshots: Generic A-major arrival arpeggio instead of an Ocarina of Time motif. §7 explains not hardcoding the Song of Time for the free-play ocarina, but the arrival &#39;dawn bells&#39; are not named as a gap.</li>
+<li>never-mentioned, in 13 of its screenshots from shot 1: Desktop/tablet hero art&#39;s own Navi glow sits beside the logo, competing with the code-drawn Navi. Especially prominent in 016 (768px), where two Navis are on screen.</li>
+<li>never-mentioned, in 0 of its screenshots: No feedback after &#39;Remind me at midnight&#39;. Static screenshots can&#39;t show it; never probed.</li>
+<li>never-mentioned, in 4 of its screenshots from shot 3: Footer copy: &#39;doomsday clock&#39; wording and the &#39;Works offline · No trackers&#39; line. Agent called the footer &#39;fine, small&#39;.</li>
+<li>never-mentioned, in 4 of its screenshots from shot 3: Automated copy finding: &#39;A fan-made doomsday clock for the Ocarina of Time remake. Not affiliated…&#39;. Seen in 3, 6, 8, 18.</li>
+<li>never-mentioned, in 4 of its screenshots from shot 3: Automated copy finding: &#39;Works offline · No trackers · See you at midnight.&#39;. Seen in 3, 6, 8, 18.</li>
+</ul>
+<h3>Claims</h3>
+<ul>
+<li>accurate: Each digit is an odometer reel that rolls to its next value every second — Countdown reels are visible in 018 and the grader captures. On wrap the reel spins through every digit (experience reviewer item 9), which the handover doesn&#39;t mention.</li>
+<li>accurate: A full-circle doomsday dial sweeps from VI toward XII; a Triforce appears at midnight at zero — 005 shows the full circle; 012/017/020 show the hand at XII with the Triforce.</li>
+<li>oversold: The world darkens with time, and in the final 10 seconds the sky blooms into a dawn glow — Night is confirmed (grader captures 06/07). The dawn bloom is faint: at 6 s (capture 07) it looks nearly the same as at 42 min (06). theme.ts ramps dawn only over the last 10 s, with smoothstep.</li>
+<li>accurate: At zero: &#39;The legend has returned&#39;, pill change, Triforce, dawn sky, PT0S, title change, no reflow; verified live in shot 017 — 017 (loaded at T−5 s, captured after zero) shows all of it; the production preview probe returned PT0S.</li>
+<li>accurate: Navi&#39;s speech depends on the clock (Hey! Listen! / The forest stirs… / It is nearly time! / Tonight, at midnight! / The legend has returned!) — Navi.tsx:10-14 matches; the navi-bubble probe showed the bubble.</li>
+<li>accurate: &#39;Remind me at midnight&#39; generates a client-side .ics for 23:45 ET — The button is present in 018/019. It gives no on-page feedback, which the handover doesn&#39;t claim either.</li>
+<li>oversold: Playable ocarina with five holes via tap/hold or A S D F G; WebAudio voice &#39;is pleasant&#39; — The grader&#39;s sound check found D and F gave only breath noise on quick taps and the others clicked; audio.ts:188 reads env.gain.value in noteOff. The agent never tested note timing.</li>
+<li>false: Interactive elements have keyboard and pointer parity with focus rings — OcarinaSection.tsx has only onPointerDown on pads; Enter/Space on a focused pad does nothing and pads have no hover style.</li>
+<li>accurate: All five assets used, re-encoded to WebP, with art direction (landscape ≥700px, portrait poster ≤700px) — app/src/assets has six webp files from the five sources; 009/014 show the poster on phone and 018 the landscape.</li>
+<li>accurate: Round 1 (001): dial read as a squiggle; hero bottom-heavy with the meta line clipped — 001 shows a tiny broken dial and the meta line cut at 900px; transcript ~6529.</li>
+<li>accurate: Round 2 (002): dial redrawn; seconds showed &#39;3&#39; with a digit missing; switched to clipped odometer cells — 002 shows &#39;34 · 10 · 22 · 3&#39;; crop at ~7469; fix at ~7624.</li>
+<li>false: Round 3 (003): first full-page capture found the blank below-fold sections; 004–006 confirmed all sections render — 003 was never opened. The blank sections were found in 006, which shows them empty. 004 and 005 are viewport-only, and the confirmation came in 008.</li>
+<li>accurate: Round 4 (005): rebuilt the dial as a full circle — The clipped-hand problem was found in a zoomed crop of 004; the 005 zoom confirmed the full circle.</li>
+<li>oversold: Round 5 (007–009): mobile passes found the LIVE pill wrapping; 2×2 grid and poster backdrop worked — 007 was never opened; the wrap was spotted in 009 and fixed in 014. It said the poster &#39;worked&#39; although moiré is plainly visible in 009.</li>
+<li>accurate: Round 6 (011): night theme didn&#39;t apply; probes showed rgba(-73, 26, -308, -3.079); fixed the descending-stop search and clamps — 011 shows a daylight scene at 2 s; transcript ~11909/12227 shows the probe and fix; grader captures 06/07 show night.</li>
+<li>oversold: Reel era: remounted &#39;0&#39; failed to paint, so it moved to permanently mounted reels; dark boxes came from clipped per-glyph glow, moved to a group drop-shadow; burst captures confirmed mid-roll clipping — The reel and glow fixes match the transcript (~17540, ~18978, ~19431). But the burst capture (~14092–14400) was taken for the earlier contain:paint fix, before the reels existed, and the reels&#39; wrap spin was never seen.</li>
+<li>accurate: Round 8 (012–013): desktop zero had the meta below the fold; tightened; 017 verified a live crossing — 012 shows PT0S at the bottom with the meta cut; 017/020 show everything fitting.</li>
+<li>oversold: Round 9 (014–021): final matrix; fixed the Ride heading size and the phone eyebrow letter-spacing — 015 and 021 were never opened. The Ride h2 fix was verified with a probe, but the eyebrow change came after the last screenshot and was not checked visually. The identical &#39;Play the ocarina&#39; heading bug was left in place.</li>
+<li>accurate: Caught an alpha-rounding bug, a missing useRef import, and a stale-HMR-module illusion via probes — Transcript ~6179, ~4770, ~13371.</li>
+<li>oversold: Stopped when the only remaining complaints were matters of taste, not defects — Its own 018/019 show a mismatched &#39;Play the ocarina&#39; heading next to the just-fixed Ride h2, and its phone shots show moiré.</li>
+<li>accurate: Production dist verified: 5 s → live zero → PT0S, zero console errors, zero external requests — Transcript ~21026 output: iso1 P0DT0H0M5S, iso2 PT0S, errors [], external []; measured facts agree.</li>
+<li>accurate: npm run lint and npm run build pass — Measured: build passes, lint passes, 0 type errors.</li>
+<li>oversold: Screenshots 001–021 across 390/768/1440 and many --now states, plus DOM probes, were taken and critiqued — 5 of 21 were never opened (003, 007, 010, 015, 021). The dusk and 18 s states were Playwright probes rather than ./shot. No phone final-seconds capture exists.</li>
+<li>accurate: §7: free-play ocarina, synthesized voice, arbitrary day→night anchor, .ics without VTIMEZONE, dawn as a design gamble, invented copy, overlap at 700–900px — Each matches the code and captures. The overlap shows in 016, and theme.ts anchors on TOTAL_SPAN_MS.</li>
+<li>accurate: Final message: three real bugs found by screenshot and fixed (theme search, phantom digits, clipped glow boxes) — Confirmed in the transcript and by the later captures (018, grader captures 06/07).</li>
+</ul>
+<h2>Sound</h2>
+<ul>
+<li><strong>pressing each of 6 controls once, in page order:</strong> 4.8 s, 13% active, -14.7 dBFS average, dynamic range 14.6 dB, spectral change 0.171 (<a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/20-sound-controls.webp">spectrogram</a>)</li>
+</ul>
+<p>Notes each control played:</p>
+<ul>
+<li>button &quot;A D&quot;: A4</li>
+<li>button &quot;B F&quot;: B4</li>
+<li>button &quot;D G&quot;: D5</li>
+</ul>
+<h2>Ground rules</h2>
+<ul>
+<li>Stay-inside rule in this run&#39;s brief: yes</li>
+<li>Its tool calls stayed inside the run folder.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 21, spanning 43.2 minutes</li>
+<li>Screenshots it never opened: 5 (3, 7, 10, 15, 21)</li>
+<li>Changed after the last screenshot: 1 files, +7/-1 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;Turn sound on&quot;</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/15-click-2.webp">37 days out, desktop, after clicking &quot;REMIND ME AT MIDNIGHT&quot;</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/16-click-3.webp">37 days out, desktop, after clicking &quot;D
+A&quot;</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/17-click-4.webp">37 days out, desktop, after clicking &quot;F
+S&quot;</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/18-click-5.webp">37 days out, desktop, after clicking &quot;A
+D&quot;</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/19-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+<li><a href="runs/ocarina-remake_glm-5.3-flash-max_2026-10-01T18-21-12/captures/20-sound-controls.webp">Sound: spectrogram and level of pressing each of 6 controls once, in page order</a></li>
+</ul>

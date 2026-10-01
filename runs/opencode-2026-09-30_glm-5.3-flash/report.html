@@ -1,0 +1,141 @@
+<h1>Doomsday benchmark: ocarina-remake_glm-5.3-flash-max_2026-09-30T04-38-52</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>opencode run --auto --format json --thinking --model opencode/glm-5.3-flash --variant max &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> opencode, keeping only the newest 13–25 images in the agent&#39;s context</li>
+<li><strong>Judges:</strong> opus, judged 2026-09-30 05:05 UTC</li>
+</ul>
+<h2>Score: 67.8 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>9.5 / 10</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>15 / 15</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>19.8 / 35</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>10.1 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, persistence, verification</td>
+<td>judged</td>
+<td>13.4 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 25 min 23 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 72</li>
+<li><strong>Tokens:</strong> 5.6M in total: 5.3M read from cache, 0 written to cache, 253K uncached input, 62K output, 38K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.228 (OpenCode&#39;s cost at its provider&#39;s prices)</li>
+</ul>
+<h2>Countdown contract: 9.5 / 10</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (2/2)</li>
+<li>✓ correct remaining time (8/8 moments) (4/4)</li>
+<li>✓ ticks every second (1/1)</li>
+<li>✓ reaches zero on time (1/1)</li>
+<li>✓ no console errors or uncaught exceptions (1/1)</li>
+<li>✗ no horizontal overflow on a 390px phone (0/0.5)</li>
+<li>✓ no requests to other origins (0.5/0.5)</li>
+</ul>
+<h2>Code hygiene: 15 / 15</h2>
+<ul>
+<li>No problems found</li>
+</ul>
+<h2>Experience and use of assets: 19.8 / 35</h2>
+<p>This is an atmospheric, clearly Zelda page. A gold Cinzel countdown sits over the dimmed Great Deku Tree with fog, grain and fireflies, and a night-to-dawn crossfade to Link on Epona is a real arrival moment. Several things hold it back: it follows the familiar &#39;logo + countdown over key art&#39; template, nothing builds in the final hour or seconds, there are no interactive elements or focus states, unit labels and footer have low contrast, <code>.content::before</code> causes page overflow, and the phone layout is weak (a hatched poster behind the digits, and a landscape crop on arrival that leaves only a hoof). No run artifact contained instructions aimed at reviewers.</p>
+<ul>
+<li><strong>Cohesion with the subject: 6/10.</strong> The idiom is right. There is a near-black forest green and gold palette, Cinzel caps that echo the Zelda title serif, and Cormorant Garamond body text (index.css). Film grain, drifting fog and canvas fireflies/fairies add atmosphere, and the copy fits the fan voice (&quot;A fan-made vigil&quot;, &quot;Hey! Listen!&quot; on arrival). The narrative arc is a real idea: at night, child Link stands before the Great Deku Tree (captures 01-07), and at zero it crossfades to dawn over Death Mountain with Link on Epona (08, 13). That works as a small &#39;the journey begins&#39; story. It feels like Hyrule, not SaaS. The event feel is weak, though. The layout is the stock &#39;centered logo + gold countdown over key art&#39;, and the &#39;DOOMSDAY CLOCK&#39; eyebrow is a whisper. Nothing builds as zero approaches: the 42-minute and 8-second states (06, 07) look the same as 37 days out apart from the digits. No motif from the subject itself (ocarina, Song of Time, Triforce) is used. It is reverent and moody rather than dramatic.</li>
+<li><strong>Visual craft: 6/10.</strong> On desktop the typography is well chosen: tracked-out Cinzel caps, gold-gradient digits in Cinzel, thin gold hairline rules beside the eyebrow and dateline, and a soft radial scrim behind the type. Spacing and centering are consistent (01, 06). There are rough edges. The unit labels (gold-dim at 55% alpha, 9-11px, 0.44em tracking) are barely readable on desktop and nearly lost on mobile (09). The footer at 34% alpha is essentially invisible and turns to mush over the bright grass in 08 and 12. The logo is large and saturated and competes with the countdown for hero status. On arrival the logo collides with Epona&#39;s head and raised hooves (08), and the labels wash out on the brighter dawn image. <code>.content::before { inset: -12% -24% }</code> makes the document overflow: the grader flags horizontal overflow at every moment, and the full-page captures (01 at 1786×1008, 09 at 484×945) show the page is roughly 100px taller than the viewport. A debug &#39;sim&#39; chip is visible (it only appears with ?now=). The page looks designed, but the finish has gaps.</li>
+<li><strong>Countdown legibility: 6/10.</strong> The DD:HH:MM:SS digits are large (up to 92px) gold Cinzel, and each glyph sits in a fixed 0.74em-wide slot (<code>.digit-slot</code>), so nothing jitters between frames 01→02→03. Unit labels sit under each group and change to singular correctly (&#39;SECOND&#39; at :01 in 04). Colons pulse gently. However, the labels are so faint that the units rely on convention more than on reading them. The ornate full-colour logo pulls the eye first. On mobile (09-11) the 38-40px digits sit directly over Link&#39;s hat and the hatched texture, which reduces contrast. After arrival the zeros stay as the hero instead of giving way to the release message.</li>
+<li><strong>Motion and interactivity: 5/10.</strong> Several layers of ambient motion, all well executed:</li>
+<li>an 80s Ken Burns drift on the backdrop and slow fog drifts</li>
+<li>canvas fireflies that twinkle and are pushed away by the pointer</li>
+<li>two-depth pointer parallax (backdrop and content shift in opposite directions; 04 vs 05 shows the scene offset)</li>
+<li>a blurred &#39;stamp&#39; drop only on the digit that changed</li>
+<li>a logo bob and a colon pulse</li>
+<li>a one-shot golden flash plus a 3.2s crossfade to dawn at zero (13 catches it mid-fade), and a pulsing &#39;Hey! Listen!&#39;</li>
+</ul>
+<p>Hovering a unit group brightens its label and glow (05, &#39;SECONDS&#39; lit). All of it is disabled under prefers-reduced-motion. But there is nothing to interact with: zero visible interactive elements and no focus state (14 looks identical to 01). No ocarina or sound, no share, no toggle. Interaction is limited to passive pointer effects. The motion is tasteful but subtle, and it does not escalate in the final seconds.</p>
+<ul>
+<li><strong>Phone layout and edge states: 5/10.</strong> Mobile gets art direction: a separate portrait poster through <code>&lt;picture&gt;</code>, a stacked dateline with its own rules, and the sim chip moved to the top (09-11). Nothing clips or overlaps at 390px. Weaknesses:</li>
+<li>The poster&#39;s built-in hatch texture reads as noise, and the countdown and labels sit right on top of Link.</li>
+<li>The grader flags horizontal overflow at 390px (full-page width 484px).</li>
+<li>The final hour and final seconds get no treatment at all (06/07, 10/11 are the weeks-out layout with different digits).</li>
+<li>Arrival is designed: flash, dawn crossfade, &#39;Hey! Listen!&#39;, italic release line, no negatives (08, 12, 13). But on mobile the landscape Epona shot is cropped so only a stray hoof shows at the left edge (12), leaving an empty mountain-and-field frame. The HANDOVER admits this compromise.</li>
+<li><strong>Asset selection: 6/10.</strong> The picks are mostly sound:</li>
+<li>The logo PNG (8a1enblo1b6h1.png) is used prominently with its transparency intact.</li>
+<li>The Great Deku Tree remake shot is the main desktop scene, which suits a vigil.</li>
+<li>The Link-on-Epona Death Mountain shot is held back as the arrival payoff, a good use of a strong image as a reward.</li>
+<li>The 2.9MB portrait poster (f55hr5n4xdoh1.jpg) was re-encoded into forest-poster.avif for phones. That is a sensible fit for the aspect ratio, but it is the weakest-looking asset because of its heavy engraved hatch texture.</li>
+<li>The clean, luminous widescreen child-Link-and-Navi art (thumb-1920-1414762.png) was dropped entirely. It is arguably the most beautiful asset and could have been cropped for mobile.</li>
+</ul>
+<p>There is no dumping: three scenes and the logo each have one clear job.</p>
+<ul>
+<li><strong>Asset treatment: 5/10.</strong> The desktop night scene is integrated well. A top and bottom gradient scrim, vignette, grain overlay and fog blend the Deku Tree into the gold palette. The logo sits on the trunk, with in-image Navi and Link lined up beneath the countdown and dateline as if Link is looking up at it (01). Formats are sensible: AVIF backdrops, the 2.9MB JPG cut to 212KB AVIF, a 279KB PNG logo. The logo has proper alt text, and decorative layers use alt=&quot;&quot; and aria-hidden. The weak spots:</li>
+<li>On mobile the hatched poster is not calmed down and Link&#39;s figure sits behind the digits (09-11).</li>
+<li>On the arrival desktop the dawn image is barely dimmed, so the logo lands on Epona&#39;s head and hooves and the labels and footer wash out (08).</li>
+<li>On the arrival phone the landscape image is cropped so badly that the subject is lost (12).</li>
+</ul>
+<p>It is good on the primary desktop state and uneven elsewhere.</p>
+<h2>Codebase: 10.1 / 15</h2>
+<p>This is a small, well-organized codebase. Pure time logic lives in <code>lib/time.ts</code> with a single target constant, the hooks and components are cohesive, the README is accurate, and it has no scaffold leftovers, debug code or extra dependencies. What keeps it from top marks: minor leftovers (a do-nothing inline <code>animationDelay</code>, a redundant <code>rise</code> class that overrides the logo&#39;s <code>bob</code> delay, an unused <code>is-released</code> class on <code>&lt;time&gt;</code>), repeated pluralization, no tests, a HANDOVER that claims more reduced-motion coverage than the CSS delivers, and no commits. None of the run&#39;s files, the HANDOVER or the transcript contained text aimed at reviewers.</p>
+<ul>
+<li><strong>Navigability: 7/10.</strong> The layout fits a small app. <code>src/lib/</code> holds the logic and hooks and <code>src/components/</code> holds the visual pieces. The countdown math is in <code>lib/time.ts:23</code> (<code>remainingTo</code>) and the ISO duration in <code>lib/time.ts:40</code>. The <code>?now</code> override is parsed at <code>lib/time.ts:73</code> (<code>parseSimulatedNow</code>), consumed at <code>App.tsx:13</code> and applied in <code>lib/useNow.ts:4</code>. The target moment is at the top of <code>time.ts</code>. Each visual piece has its own file: <code>Backdrop</code>, <code>Fireflies</code>, <code>Countdown</code> and <code>SimBadge</code>. <code>app/README.md</code> says what the project is, lists the scripts, documents <code>?now</code> with examples and describes each main file in a &#39;How it works&#39; section. That section leaves out <code>SimBadge.tsx</code> and <code>usePrefersReducedMotion.ts</code>, but HANDOVER.md lists them. The styles are one 564-line <code>app.css</code> split by comment banners (backdrop, content, countdown, datelines, chrome, responsive, reduced motion). That is easy to scan, though finding a component&#39;s styles still means searching one big file. Hooks sit in <code>lib/</code> next to pure logic instead of in their own folder. That is a minor point. A new engineer would find anything here in under a minute.</li>
+<li><strong>Separation of concerns: 7/10.</strong> The time logic is pure and in one place. <code>remainingTo(nowMs, targetMs = TARGET_MS)</code>, <code>formatISODuration</code> and <code>describeRemaining</code> in <code>lib/time.ts</code> take plain values and return plain values, so they are easy to unit-test. No tests exist, though. The target has one source of truth, <code>TARGET_ISO</code> → <code>TARGET_MS</code> (<code>time.ts:5-6</code>). <code>TARGET_LABEL</code> and the meta tags in <code>index.html</code> restate the date by hand. Ticking lives in <code>useNow</code>, which is kept apart from presentation. <code>App</code> builds the simulated clock once in <code>useState</code> so its identity stays stable. Components only present data. <code>Digit</code> keeps its own animation state, and <code>Backdrop</code> is static markup. Minor issues: <code>parseSimulatedNow</code> calls <code>Date.now()</code> internally (<code>time.ts:78</code>), which makes it harder to test than it needs to be. <code>Countdown</code> gets a <code>released</code> prop that repeats <code>value.released</code>. The reduced-motion query string is duplicated: <code>usePointerParallax.ts:15</code> does a one-time <code>matchMedia</code> check instead of using <code>usePrefersReducedMotion</code>. The zero-crossing flash and title effects live in <code>App.tsx</code>, which is acceptable at 78 lines.</li>
+<li><strong>Readability: 7/10.</strong> Names are precise: <code>remainingTo</code>, <code>formatISODuration</code>, <code>describeRemaining</code>, <code>parseSimulatedNow</code>, <code>currentSimulatedTime</code>, <code>usePointerParallax</code>, <code>SimulatedClock.offsetMs</code>. Functions and components are small. Most comments explain why rather than what, e.g. the DST note on the target (<code>time.ts:3</code>), the ceil rounding (<code>time.ts:19-21</code>), keeping smaller ISO units (<code>time.ts:37-38</code>), the self-correcting tick (<code>useNow.ts:9-16</code>), the stamp-only-changed-digit remount (<code>Countdown.tsx:5-9</code>) and the CSS scrim notes. Nits a reviewer would raise: pluralization is written out eight times (<code>time.ts:54-57</code>, <code>Countdown.tsx:61-67</code>) where a <code>plural()</code> helper would do. The <code>+ 25</code> in <code>useNow.ts:23</code> has no comment in the code. <code>Fireflies.tsx</code> (132 lines, one effect) is full of unexplained magic numbers (120, 30, 42_000, 24/20 wrap margins). Entrance stagger is set with inline <code>style={{ animationDelay }}</code> in <code>App.tsx</code> while all other motion lives in CSS, which mixes two approaches. <code>Digit</code> uses the setState-during-render pattern to detect prop changes. React sanctions that pattern and the code documents it, but it is slightly clever. I would approve this with a few nits.</li>
+<li><strong>Finish: 6/10.</strong> The scaffold is fully replaced: the default <code>App.css</code>, <code>react.svg</code> and <code>vite.svg</code> are gone, <code>index.html</code>, the favicon and <code>index.css</code> are rewritten, and the README is real. There is no commented-out code, no TODOs and no console logging. Every CSS class and custom property is used, and every file in <code>public/</code> is referenced. No runtime dependencies were added. Small leftovers I verified: <code>.release-note</code> has an inline <code>animationDelay: &#39;0.6s&#39;</code> (<code>App.tsx:64</code>) that does nothing, because the class has no animation, only a transition. The logo keeps a redundant <code>rise</code> class that <code>.logo</code>&#39;s own <code>animation</code> shorthand overrides. Its inline <code>animationDelay: 0.16s</code> also silently replaces the intended 2s delay on <code>bob</code>. The <code>is-released</code> class on <code>&lt;time&gt;</code> (<code>Countdown.tsx:55</code>) isn&#39;t targeted by any selector. The preload media query <code>max-width: 719.9px</code> (<code>index.html:17</code>) disagrees with the <code>&lt;source media=&quot;(max-width: 719px)&quot;&gt;</code> in <code>Backdrop.tsx:8</code>. <code>TARGET_ISO</code> and <code>currentSimulatedTime</code> are exported but only used inside their own files. <code>package.json</code> still has the scaffold&#39;s <code>&quot;name&quot;: &quot;app&quot;</code> and <code>0.0.0</code>. The handover docs overclaim: HANDOVER.md says every animation, including &#39;the zero flash&#39;, is disabled under reduced motion, but <code>.flash</code> and the <code>.rise</code> entrances aren&#39;t in the reduced-motion block (<code>app.css:535-563</code>). The agent also never committed, so the repo arrives as the scaffold commit plus a pile of uncommitted changes.</li>
+</ul>
+<h2>Process: self-critique, persistence, verification: 13.4 / 25</h2>
+<p>The standout moment was caught through verification: a stale-looking zero-crossing screenshot led the agent to find a ticker that fired once and died, plus a malformed ISO duration. It fixed both, re-verified them with Playwright, and re-shot desktop and mobile after its last edits. Design self-critique was shallow and self-congratulatory: unit labels that are nearly illegible on mobile (dismissed with &#39;Fine&#39;), an invisible footer, streaks on the mobile poster and measured horizontal overflow were all missed or waved away. The page barely changed after the first render, and the handover leaves out the overflow and legibility issues. No reviewer-directed text was found in the run artifacts.</p>
+<ul>
+<li><strong>Verification: 7/10.</strong> Broad and done after the final edits. It ran <code>npm run lint &amp;&amp; npm run build</code> several times, including after the last CSS edits (transcript ~4787, ~9251). It took ./shot captures at 1440x900 and 390x844 for weeks out (001, 002-390, 009-390), for 307 days out (009-1440), for 10 seconds left (002-1440), and for the arrival (007-1440/390, 011-1440/390). The final 011 pair came after all edits, and no files changed after the last shot. The best moment was noticing that 004 (a wait of 12.5 s) showed the same 00:00:00:10 as 002. From that it found the real bug: the ticker never rescheduled, so it fired once and died. It confirmed this with 005/006 and a hand-written Playwright probe, then found the missing <code>P</code> prefix (<code>T10S</code>). It sampled the zero crossing PT10S→PT0S and probed <code>?now=garbage</code>, a date far in the past, exactly one <code>&lt;time&gt;</code> element, and reduced motion (transcript ~8495). It also checked the production build with <code>vite preview</code>, took an 844x390 landscape shot and grepped dist/ for external URLs. Gaps: it never measured horizontal overflow, which the harness flags at every moment, desktop and mobile (body <code>overflow-x: hidden</code> in index.css:62 hides it rather than fixing it; the likely source is the fog layer at <code>inset: -12% -24%</code>). It never shot the final seconds on mobile. It never saw the zero flash (&#39;missed in this frame, that&#39;s fine&#39;).</li>
+<li><strong>Critique quality: 5/10.</strong> Mixed. Some critiques were real, specific and visual. The mobile eyebrow was &#39;barely visible&#39; against the bright sky rays in 002-390. The sim badge collided with the footer text in 007-390. The logo&#39;s sword nearly touches the digits on the mobile arrival screen. The dawn crop on mobile shows mostly Epona&#39;s rear. The digits look pale over the dawn sky on desktop. But much of the commentary congratulates itself: &#39;This looks genuinely good on first render!&#39;, &#39;Zero state is gorgeous&#39;, &#39;Portrait poster renders beautifully&#39;, &#39;3-digit days fit elegantly&#39;. Several of its own findings were talked away in the same breath (&#39;It&#39;s fine&#39;, &#39;acceptable&#39;, &#39;Leave it&#39;, &#39;Skip&#39;). It also missed or misjudged real problems a design lead would catch. It called the labels &#39;readable&#39;, but DAYS/HOURS/MINUTES/SECONDS are nearly illegible everywhere and, on mobile, sit on Link&#39;s body (009-390). It saw &#39;MINUT...&#39; and wrote &#39;Fine.&#39; The footer disclaimer is almost invisible in every shot. A vertical streak texture runs across the mobile poster in 002/009-390, yet it called the poster &#39;crisp&#39;. The countdown row sits on Link&#39;s head in the mobile composition.</li>
+<li><strong>Follow-through: 5/10.</strong> The problems it chose to act on were fixed and checked. The ticker was rewritten and the zero crossing re-verified. The eyebrow got brighter color, a text-shadow and a stronger top scrim on mobile, and it is visibly clearer in 009-390 than in 002-390. The sim badge moved to the top-left on mobile, confirmed in 011-390 against 007-390. The footer spacing was adjusted. But the other problems it noticed (tight logo-to-digit gap on mobile, pale digits at zero, clipped or illegible labels, the awkward dawn crop on mobile) were acknowledged and then dropped. Visually, 001-1440 and the late pre-zero desktop state (009-1440) are essentially the same design. There was one round of small polish, and nothing like a clear arc from early to late.</li>
+<li><strong>Persistence: 4/10.</strong> The session ran 25 min 23 s. The first screenshot came about 10 minutes in, and the screenshots cover only 13.7 minutes. Debugging persistence was good. It dug into the frozen tick through several probe attempts, working around Node module-resolution and port problems (transcript ~5657–7368), rather than accepting the stale frame. Design persistence was minimal. It took the first render as &#39;Strong&#39;, made one small CSS pass (eyebrow, scrim, badge, footer), and then moved to docs. It weighed further ideas and turned them down (&#39;Could add a gentle scale on hover? Meh&#39;, &#39;Minor. Skip&#39;, &#39;Leave it&#39;). It stopped at the first &#39;good enough&#39; on the visual side.</li>
+<li><strong>Honest handover: 6/10.</strong> HANDOVER.md is present and mostly accurate. These claims match the measured facts: lint and build pass, 0 type errors, no console errors, exactly one <code>&lt;time&gt;</code>, correct PT0S at and after zero, ticking verified across zero, no requests to other origins, fonts self-hosted. The one genuine design compromise it names (the landscape dawn crop on phones) is true. It also correctly says that safe-area insets and sleep recovery were checked by code review only, not run. But it says the layout was &#39;verified at 390×844, 844×390, 900×700 and 1440×900&#39; and describes the typography as clamped and fluid, while the harness measured horizontal overflow at every moment on both desktop and mobile. That is not mentioned. It does not name the near-illegible unit labels or the invisible footer. It describes the golden flash as working without ever seeing it. The &#39;Known gaps&#39; list leans toward trivia (±25 ms tick slop, the firefly cost) over real visible issues. The final message (&#39;Everything is verified and shipped&#39;) overclaims slightly, but nothing in it is false.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 12, spanning 13.7 minutes</li>
+<li>Changed after the last screenshot: 0 files, +0/-0 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/opencode-2026-09-30_glm-5.3-flash/captures/14-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+</ul>

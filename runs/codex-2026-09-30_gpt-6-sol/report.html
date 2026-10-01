@@ -1,0 +1,117 @@
+<h1>Doomsday benchmark: ocarina-remake_codex-sol-6-medium_2026-09-30T15-49-28</h1>
+<ul>
+<li><strong>Scenario:</strong> The Legend of Zelda: Ocarina of Time (remake), counting down to 2026-11-05T00:00:00-05:00</li>
+<li><strong>Agent:</strong> <code>codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --json --model gpt-6-sol &quot;$(cat BRIEF.md)&quot;</code> (exit 0)</li>
+<li><strong>Harness:</strong> codex</li>
+<li><strong>Judges:</strong> claude-opus-5-5, judged 2026-09-30 16:09 UTC</li>
+</ul>
+<h2>Score: 56.8 / 100</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Kind</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Countdown contract</td>
+<td>automated</td>
+<td>10 / 10</td>
+</tr>
+<tr>
+<td>Code hygiene</td>
+<td>automated</td>
+<td>15 / 15</td>
+</tr>
+<tr>
+<td>Experience and use of assets</td>
+<td>judged</td>
+<td>15.4 / 35</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>judged</td>
+<td>7.6 / 15</td>
+</tr>
+<tr>
+<td>Process: self-critique, persistence, verification</td>
+<td>judged</td>
+<td>8.8 / 25</td>
+</tr>
+</tbody></table>
+<h2>Time, tokens and cost</h2>
+<ul>
+<li><strong>Run time:</strong> 17 min 13 s (launch to exit, measured by the benchmark)</li>
+<li><strong>Turns:</strong> 1</li>
+<li><strong>Tokens:</strong> 1.4M in total: 1.4M read from cache, 0 written to cache, 59K uncached input, 17K output, 2K of it reasoning</li>
+<li><strong>Estimated cost:</strong> $0.561 (Standard short-context API-equivalent estimate at OpenAI list prices checked 2026-09-30; not a billed charge. Per-request long-context, service-tier and regional premiums are unavailable in Codex turn totals)</li>
+</ul>
+<h2>Countdown contract: 10 / 10</h2>
+<ul>
+<li>✓ exactly one valid duration &lt;time&gt; at every moment (2/2)</li>
+<li>✓ correct remaining time (8/8 moments) (4/4)</li>
+<li>✓ ticks every second (1/1)</li>
+<li>✓ reaches zero on time (1/1)</li>
+<li>✓ no console errors or uncaught exceptions (1/1)</li>
+<li>✓ no horizontal overflow on a 390px phone (0.5/0.5)</li>
+<li>✓ no requests to other origins (0.5/0.5)</li>
+</ul>
+<h2>Code hygiene: 15 / 15</h2>
+<ul>
+<li>No problems found</li>
+</ul>
+<h2>Experience and use of assets: 15.4 / 35</h2>
+<p>This is a polished editorial page in gold and cream serif type. The Ocarina of Time logo sits over a dimmed Hyrule Field / Death Mountain backdrop, and one button crossfades to the Deku Tree scene. It is tasteful but quiet and not event-like. The Georgia old-style digits bob and change width as they tick, there is almost no motion, the final seconds get no special treatment, and the arrival only swaps copy and recolours the digits. The two most vivid key-art images (young Link in Kokiri Forest) were left out. No reviewer-directed instructions were found in the evidence.</p>
+<ul>
+<li><strong>Cohesion with the subject: 5/10.</strong> The gold-on-dark palette, serif display type (&#39;The legend returns.&#39;), sparkle glyphs, thin frame corners and copy like &#39;Until the gates of Hyrule open&#39; and &#39;Time is the key to everything&#39; echo Zelda&#39;s regal, storybook identity, and they sit well with the official logo (captures 01, 14). But the mood reads more like a luxury or editorial landing page than Hyrule. There&#39;s no Triforce, ocarina or Navi motif, and the heavy dark overlay drains the warmth from the art. There&#39;s little sense of event: nothing escalates at 42 minutes or 8 seconds (06, 07), the arrival is just a copy swap (08), and the top-right tag still says &#39;THE COUNTDOWN HAS BEGUN&#39; after zero.</li>
+<li><strong>Visual craft: 5/10.</strong> The type hierarchy is clear: a large two-line headline with an italic gold accent, wide-tracked small caps for eyebrows, and a well-balanced footer bar with a date on the left and a scene control on the right (01). Spacing is consistent and the frame corners add finish. Rough edges: the digits are system Georgia, and its old-style figures give an uneven baseline (&#39;037&#39; has descenders, &#39;16&#39; rises in 06). Negative letter-spacing packs the numerals tightly against the colons. The tiny &#39;REIMAGINED FOR NINTENDO SWITCH 2&#39; caption is barely readable. The overall look is competent and tasteful rather than distinctive.</li>
+<li><strong>Countdown legibility: 5/10.</strong> The countdown is large and centred, units are clearly labelled, and days are set apart in gold. But Georgia has neither tabular nor lining figures, so the requested &#39;lining-nums tabular-nums&#39; (App.css:32) has no effect. Group widths change between ticks (&#39;10&#39; vs &#39;09&#39;, &#39;04&#39; vs &#39;00&#39;; captures 01, 02, 03, 05), and old-style 3, 4, 7 and 9 drop below the baseline, so the row jitters and bobs. It also competes with the equally large headline above it, so it isn&#39;t clearly the hero.</li>
+<li><strong>Motion and interactivity: 3/10.</strong> Motion frames 01–03 are identical apart from the digits, and moving the pointer (04, 05) changes nothing, so there&#39;s no parallax, particles or ambient motion. The only interaction is one circular button that crossfades the backdrop to the Deku Tree scene (900 ms opacity plus a slow scale; capture 14), and the caption text swaps with it. The button has hover and focus-visible states, and the white focus ring is visible in capture 15. prefers-reduced-motion is respected. Digits change with no transition. Overall it is minimal but not gimmicky.</li>
+<li><strong>Phone layout and edge states: 4/10.</strong> The 390px layout is restacked rather than simply squeezed: the logo and date tag sit on top, the headline and a compact four-column clock fit without overflow, and the footer stacks (09). But the Epona crop cuts off Link and leaves a headless horse torso behind the headline. The final seconds (07, 11) look exactly like the weeks-out state. The arrival (08, 12, 13) turns the zeros gold and changes two lines of copy, and the zero crossing works cleanly with nothing negative or broken. These states feel like afterthoughts, not designed moments.</li>
+<li><strong>Asset selection: 4/10.</strong> It uses the transparent logo, the Epona / Death Mountain image as the hero and the Deku Tree image as the alternate scene. It leaves out both young-Link Kokiri Forest pieces: f55hr5n4xdoh1.jpg (a portrait key art that would have been ideal on mobile) and thumb-1920-1414762.png (the most vivid, iconic wide image, with Navi and the ocarina). Those are arguably the strongest and most on-subject assets, while the Deku Tree image (dark and murky) is weaker. The logo gets proper prominence. Choosing a restrained set was reasonable, but the choice is questionable.</li>
+<li><strong>Asset treatment: 4/10.</strong> Backgrounds are shipped as the original AVIFs and the logo as a transparent PNG with correct alt text. The Epona image is well placed on desktop, with Link framing the left and the volcano on the right (01). A heavy dark overlay flattens both photos into murky brown-green, and the Deku Tree scene in capture 14 is barely readable. The mobile crop (09) cuts Link off, leaving only the horse. There&#39;s no compositing, masking or colour grading beyond the dim, and the crossfade is the only extra use. Handling is adequate, not inventive.</li>
+</ul>
+<h2>Codebase: 7.6 / 15</h2>
+<p>This is a small, tidy codebase: one 115-line App.tsx and one CSS file, with no added dependencies and no dead code. It is easy to navigate, but the time logic is tied to module-level globals and can&#39;t be tested, the release date is hard-coded again as display text, and both the JSX and the one-rule-per-line CSS are dense. Nothing in the run was addressed to reviewers.</p>
+<ul>
+<li><strong>Navigability: 6/10.</strong> The whole app is one 115-line component, <code>app/src/App.tsx</code>, plus one CSS file, <code>App.css</code>. The countdown math (<code>remainingSeconds</code>, <code>parts</code>, <code>duration</code>, lines 17-34) and the <code>?now</code> parsing (lines 5-9) sit at the top of that file, so an engineer finds them in seconds. Each visual piece has a plainly named class (<code>scene-image</code>, <code>frame-corners</code>, <code>clock-cell</code>, <code>scene-control</code>). A flat layout suits a codebase this small. On the other hand there are no named components: header, hero, clock and footer are all one JSX tree. The README (19 lines) covers the purpose, the npm scripts and the <code>?now</code> format, but says nothing about where the code lives, the image assets, or how the scene switcher works.</li>
+<li><strong>Separation of concerns: 4/10.</strong> There is one <code>RELEASE</code> constant (App.tsx:4). The date is still hard-coded again as display text: <code>11 · 05 · 26</code> (line 76) and <code>November 5, 2026 · 12:00 AM ET</code> (line 102). The time helpers are separate functions, but <code>remainingSeconds</code> reads module-level globals (<code>clockStart</code>, <code>elapsedStart</code>, <code>performance.now()</code>) that are fixed when the module loads, and nothing is exported, so they can&#39;t be tested without a DOM or module mocking. Only <code>parts</code> and <code>duration</code> are pure. The <code>?now</code> override runs as a side effect at module scope. Scenes, clock and footer copy all live in one component, and the tick scheduling, scene carousel and full presentation are mixed together. State placement is reasonable for this size: just <code>remaining</code> and <code>sceneIndex</code>.</li>
+<li><strong>Readability: 4/10.</strong> Names are mostly clear (<code>remainingSeconds</code>, <code>arrived</code>, <code>scenes</code>). <code>parts</code> and <code>duration</code> are vague. Several JSX lines are very long and dense: line 86 (topline), line 88 (an inline <code>[[&#39;days&#39;, …]] as const</code> tuple mapped with a pad-width ternary), line 87 (a long aria-label template), and lines 105-106. The timer uses unexplained magic numbers: <code>Math.max(50, 1000 - (elapsed % 1000) + 10)</code>. Line 49 repeats the elapsed-time formula that <code>remainingSeconds</code> already computes. <code>App.css</code> puts every rule on one long line (for example line 5&#39;s double gradient and line 32), which makes diffs and review hard. The <code>.header-right &gt; span:nth-child(2)</code> selector ties the CSS to DOM order. It works, but I would ask for restructuring in review.</li>
+<li><strong>Finish: 6/10.</strong> The code is lean. It adds no dependencies, and I found no dead code, commented-out blocks, TODOs or console logging; every CSS class I checked is used. The scaffold leftovers (App.css, index.css, assets, icons) were rewritten or removed, and only three images are shipped, all referenced. What&#39;s left: <code>package.json</code> still has name <code>app</code> and version <code>0.0.0</code>, <code>vite.config.ts</code> keeps the scaffold comment, and the agent never committed, so there is no history to hand over. The codebase is compact and tidy, but it looks minimal rather than deliberately polished.</li>
+</ul>
+<h2>Process: self-critique, persistence, verification: 8.8 / 25</h2>
+<p>This was a quick one-pass build (17 minutes, four screenshots in 3.1 minutes). Functional verification was solid: build, lint, and Playwright checks of the countdown ticking, reaching zero, the single <code>&lt;time&gt;</code>, overflow and request origins, re-run after the final edits. Visual self-critique was nearly absent: one wrap fix, while the desktop footer crowding, the mobile art crop and the 768px wrap went unremarked, and the final CSS edit was never screenshotted. The handover&#39;s claims are accurate but it lists almost no known gaps. No text in the run addressed reviewers.</p>
+<ul>
+<li><strong>Verification: 5/10.</strong> The agent ran <code>npm run build</code> and <code>npm run lint</code> three times, the last time after its final code changes (transcript item_28). It also caught that its first write had run from the wrong directory, so the first build had only checked the untouched starter (item_12). It wrote Playwright checks that go beyond screenshots. item_24 confirmed the <code>&lt;time&gt;</code> element read P0DT0H0M10S, then P0DT0H0M8S, then PT0S, and that the scene switch works at 390px. item_29, run after the last edits, confirmed exactly one <code>&lt;time&gt;</code>, no horizontal overflow and same-origin requests only, at 390, 768 and 1440 px. Screenshot coverage was thin: four shots in 3.1 minutes. They cover desktop weeks-out (001-1440), phone final seconds (001-390), phone after zero (003) and tablet (004). There was no phone weeks-out shot, no shot of the Kokiri Forest scene, and no desktop shot after zero. After shot 004 it edited App.css again (item_27), deleted scaffold files and rewrote the README (7 files, +15/-56), and never took another screenshot. The final visual state was never looked at.</li>
+<li><strong>Critique quality: 3/10.</strong> There is only one visual critique in the whole run (item_18): &quot;the platform line under the logo wraps&quot; at 390px. It is specific and correct. The same message says the desktop and 390px shots show &quot;the intended hierarchy and no visible overflow&quot;, which is generic and partly wrong. In 001-1440x900 the footer is crammed against the bottom edge: the date sits at about y=882 and the bottom-right frame corner collides with the footer. On mobile (001-390, 003) the Epona art is cropped to a disembodied horse chest behind the headline, and Link is barely visible. Shot 004 at 768px shows the same &quot;REIMAGINED FOR NINTENDO SWITCH 2&quot; wrap onto two lines, but the agent said nothing about it. It never assessed motion, the second scene or the arrival design.</li>
+<li><strong>Follow-through: 3/10.</strong> The one critique was fixed: shot 003 shows the edition line on a single line at 390px. The CSS edit after shot 004 (item_27) may have addressed the matching wrap at 768px, but the agent never took a screenshot to confirm it. The first and last screenshots are essentially the same design. Apart from the small fix and the arrival-state copy, nothing visibly improved across the run. Nothing else was noticed, so nothing else was acted on.</li>
+<li><strong>Persistence: 2/10.</strong> The session lasted 17 minutes, and the whole screenshot phase took 3.1 minutes. The agent wrote the full design in one pass, made one small fix, checked the tablet width, and wrote the handover. It never iterated on composition, art direction for mobile, motion, or the launch moment. It declared the work done at its first &#39;good enough&#39;, despite the brief&#39;s &quot;stop when you&#39;d be proud to ship it&quot;.</li>
+<li><strong>Honest handover: 5/10.</strong> The factual claims in HANDOVER.md hold up. Build and lint pass. The P0DT0H0M10S → P0DT0H0M8S → PT0S sequence matches item_24. The single <code>&lt;time&gt;</code>, no-overflow and same-origin claims match item_29 and the measured facts. The listed screenshots were actually taken. However, the &#39;Known limits&#39; section only mentions no audio and no livestream. It omits real gaps: the final CSS edit was never checked visually, and the mobile crop of the hero art is weak. The final message says it &quot;reviewed desktop, tablet, mobile, and zero-state screenshots&quot;, which is true, but those shots predate the last edits. The claims are accurate but the gaps are underreported; there is no outright overclaiming.</li>
+</ul>
+<h2>Process facts</h2>
+<ul>
+<li>Screenshots taken by the agent: 4, spanning 3.1 minutes</li>
+<li>Changed after the last screenshot: 7 files, +15/-56 lines</li>
+<li>Agent commits in app/: 0</li>
+<li>HANDOVER.md: present</li>
+<li>Transcript: .bench/transcript.log</li>
+</ul>
+<h2>Grader captures</h2>
+<ul>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/01-weeks-out-desktop.webp">37 days out, desktop 1440px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/02-motion-a.webp">37 days out, desktop, 0.7 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/03-motion-b.webp">37 days out, desktop, 1.4 s after the first capture</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/04-pointer-upper-left.webp">37 days out, desktop, pointer moved to the upper left</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/05-pointer-lower-right.webp">37 days out, desktop, pointer moved to the lower right</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/06-final-hour-desktop.webp">42 minutes out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/07-final-seconds-desktop.webp">8 seconds out, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/08-arrived-desktop.webp">3 hours after the moment, desktop 1440px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/09-weeks-out-mobile.webp">37 days out, mobile 390px, full page</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/10-final-hour-mobile.webp">42 minutes out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/11-final-seconds-mobile.webp">8 seconds out, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/12-arrived-mobile.webp">3 hours after the moment, mobile 390px</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/13-zero-crossing.webp">Loaded 4 seconds before the moment, captured 2 seconds after it</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/14-click-1.webp">37 days out, desktop, after clicking &quot;View Kokiri Forest&quot;</a></li>
+<li><a href="runs/codex-2026-09-30_gpt-6-sol/captures/15-keyboard-focus.webp">37 days out, desktop, after pressing Tab once (focus style)</a></li>
+</ul>
